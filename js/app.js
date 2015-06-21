@@ -4,8 +4,8 @@
 
 // The following two lines are globally scoped. These are initialized as empty and populated once facebook OAuth succeeds.
 // ***********************************
-// var fbData;
-// var userData;
+var fbData;
+var userData;
 
 // Unsure about this
 // ***********************************
