@@ -1,25 +1,35 @@
+// ***********************************
 // Required for OAuth popup
-// ***********************************
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-
-// The following two lines are globally scoped. These are initialized as empty and populated once facebook OAuth succeeds.
 // ***********************************
+
+
+// ***********************************
+// The following two lines are globally scoped. These are initialized as empty and populated once facebook OAuth succeeds.
 var fbData;
 var userData;
-
-// Unsure about this
 // ***********************************
+
+// ***********************************
+// Will be used for ajax call
 // var baseUrl = 'http://localhost:3000/'
 // var baseUrl = 'https://calm-island-3256.herokuapp.com/'
+// ***********************************
 
 $(document).ready(function(){
-  console.log("Document Ready.");
 
-// On Button Click
-// ***********************************
+  // ***********************************
+  // Confirms document and JS loaded
+  console.log("Document Ready.");
+  // ***********************************
+
+  // ***********************************
+  // The following will be cleaned up
   $('.button').on('click', function(e){
+    // Prevent default not really needed. YOLO
     e.preventDefault();
 
+    // Firebase OAuth. Do not mess with this without chatting with Jacob or Alex.
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
@@ -27,8 +37,7 @@ $(document).ready(function(){
         console.log("Authenticated successfully with payload:", authData);
       }
     });
-
-
+    // Will use this for a refactored OAuth call
     // fbAuth().then(function(authData){
     //   fbData = authData;
     //   var fbString = JSON.stringify(authData);
@@ -37,12 +46,15 @@ $(document).ready(function(){
       // setProfile(authData);
     // });
   });
+  // ***********************************
+
 });
 
-// Unsure about alllllll this
-// ***********************************
-
 //function definitions only ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// ***********************************
+// Please do not touch the following. Being used as referance for refactor and future OAuth
+
 
 // var fbAuth = function(){
 //   var promise = new Promise(function(resolve, reject){
@@ -72,3 +84,4 @@ $(document).ready(function(){
 //     alert("Login Failed");
 //   });
 // };
+// ***********************************
