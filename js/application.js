@@ -14,6 +14,7 @@ var submitSearch = function(){
 
    request.done(function(data){
     console.log("successssssss");
+    $("#product-search").hide();
    });
    request.fail(function(data){
     console.log("fail");
