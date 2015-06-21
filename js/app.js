@@ -1,7 +1,7 @@
-var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var fbData;
-var userData;
-var baseUrl = 'http://localhost:3000/'
+// var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
+// var fbData;
+// var userData;
+// var baseUrl = 'http://localhost:3000/'
 // var baseUrl = 'https://calm-island-3256.herokuapp.com/'
 
 $(document).ready(function(){
