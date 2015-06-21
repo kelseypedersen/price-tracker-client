@@ -5,20 +5,19 @@ $(document).ready(function(){
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
     event.preventDefault();
-    console.log("clicking the form");
+
+   var request = $.ajax({
+    url:"http://localhost:3000/products/results", 
+    crossDomain: true,
+    type:"GET"
+   });
+
+   request.done(function(data){
+    console.log("successssssss");
+   });
+   request.fail(function(data){
+    console.log("fail");
+   });
   });
 };
 
-
-
-
-
-
-
-
-  // <div class="search-product-form">
-  //   <form id="product-search" action="/products/results" method= "GET">
-  //     <input type="text" name="search"/>
-  //     <input type="submit" value="Search" />
-  //   </form>
-  // </div>
