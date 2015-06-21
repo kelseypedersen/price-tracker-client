@@ -1,6 +1,6 @@
-// Unsure about this
+// Required for OAuth popup
 // ***********************************
-// var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
+var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
 
 // The following two lines are globally scoped. These are initialized as empty and populated once facebook OAuth succeeds.
 // ***********************************
@@ -13,23 +13,31 @@ var userData;
 // var baseUrl = 'https://calm-island-3256.herokuapp.com/'
 
 $(document).ready(function(){
-  console.log("hello")
+  console.log("Document Ready.");
 
-// Unsure about this
+// On Button Click
 // ***********************************
-//   $('#login').on('click', function(e){
-//     e.preventDefault();
+  $('.button').on('click', function(e){
+    e.preventDefault();
 
-// Unsure about this
-// ***********************************
-//     fbAuth().then(function(authData){
-//       fbData = authData;
-//       var fbString = JSON.stringify(authData);
-//       window.localStorage.setItem("fbData", fbString);
-//       ajaxLogin(authData);
-//       setProfile(authData);
-//     });
+    ref.authWithOAuthPopup("facebook", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });
+
+
+    // fbAuth().then(function(authData){
+    //   fbData = authData;
+    //   var fbString = JSON.stringify(authData);
+    //   window.localStorage.setItem("fbData", fbString);
+      // ajaxLogin(authData);
+      // setProfile(authData);
+    // });
   });
+});
 
 // Unsure about alllllll this
 // ***********************************
