@@ -65,7 +65,7 @@ var hardLanding = function(){
   $('.button').on('click', function(event){
     event.preventDefault();
 
-  $('form').remove();
+  $('.hardLanding').remove();
   $(".search-product-form").css("display", "block");
 
   var request = $.ajax({
