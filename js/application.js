@@ -14,11 +14,20 @@ var submitSearch = function(){
    });
 
    request.done(function(data){
-    // console.log(data);
+    debugger
     console.log("successssssss");
     $("#product-search").hide();
-    $(".search-results").text(data[0]);
+
+    var products = data["products"]
+    var productResults = [];
+
+    for(i = 0; i < products.length; i++){
+      productResults.push(products[i].name) 
+    }
+
+    $(".search-results").html(productResults);
    });
+
    request.fail(function(data){
     console.log("fail");
    });
