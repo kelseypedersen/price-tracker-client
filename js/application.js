@@ -1,6 +1,20 @@
 $(document).ready(function(){
-  submitSearch();
+  hardLanding();
 }); 
+
+
+
+var hardLanding = function(){
+  $('a').on('click', function(event){
+    event.preventDefault();
+    console.log("woooop woooooop")
+  });
+};
+
+
+
+
+
 
 
 var submitSearch = function(){
@@ -23,7 +37,10 @@ var submitSearch = function(){
 
 
     for(i = 0; i < products.length; i++){
-      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+      $(".search-results").prepend("<div class='product'><a href='" + 
+        products[i].clickUrl + "'>" + "<img src='" + 
+        products[i].image.sizes.IPhoneSmall.url + 
+        "' alt='product Image'>" + "</a></div>")
     };
 
    });
