@@ -23,8 +23,8 @@ $(document).ready(function(){
   // ***********************************
 
   // ***********************************
-  // The following will be cleaned up
-  $('.button').on('click', function(e){
+  // The following needs to be cleaned up.
+  $('.buttonLogin').on('click', function(e){
     // OAuth does not work without preventDefault
     e.preventDefault();
 
@@ -32,6 +32,17 @@ $(document).ready(function(){
     fbAuth().then(function(authData){
       fbData = authData;
       ajaxLogin(authData);
+      // setProfile(authData);
+    });
+  });
+  $('.buttonRegister').on('click', function(e){
+    // OAuth does not work without preventDefault
+    e.preventDefault();
+
+    // Firebase OAuth. Do not mess with this without chatting with Jacob or Alex.
+    fbAuth().then(function(authData){
+      fbData = authData;
+      ajaxRegister(authData);
       // setProfile(authData);
     });
   });
@@ -58,6 +69,20 @@ var fbAuth = function(){
 };
 
 var ajaxLogin = function(authData){
+  userId = authData.facebook.id;
+  var ajaxData = {user:{oauth_id:userId}};
+  $.ajax({
+    url: baseUrl + 'users/' + userId + '/identify',
+    type: 'GET',
+    data: ajaxData
+  }).done(function(response) {
+    userData = response;
+    // window.location.href = '#page-map';
+  }).fail(function() {
+    alert("Login Failed");
+  });
+};
+var ajaxRegister = function(authData){
   userId = authData.facebook.id;
   var ajaxData = {user:{oauth_id:userId}};
   $.ajax({
