@@ -32,6 +32,7 @@ $(document).ready(function(){
     fbAuth().then(function(authData){
       fbData = authData;
       ajaxLogin(authData);
+      debugger
       // setProfile(authData);
     });
   });
@@ -47,7 +48,6 @@ $(document).ready(function(){
     });
   });
   // ***********************************
-
 });
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
