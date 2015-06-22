@@ -1,11 +1,7 @@
 $(document).ready(function(){
-  welcomeForm();
   submitSearch();
 }); 
 
-var welcomeForm = function(){
-
-};
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
