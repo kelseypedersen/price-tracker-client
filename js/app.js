@@ -68,6 +68,7 @@ var fbAuth = function(){
   return promise;
 };
 
+// The url for both ajax calls need to be updated.
 var ajaxLogin = function(authData){
   userId = authData.facebook.id;
   var ajaxData = {user:{oauth_id:userId}};
