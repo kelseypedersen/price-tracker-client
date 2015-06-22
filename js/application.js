@@ -7,14 +7,17 @@ var submitSearch = function(){
     event.preventDefault();
 
    var request = $.ajax({
-    url:"http://localhost:3000/products/results", 
+    url:"http://localhost:3000/products/results",
+    data: $(this).serialize(), 
     crossDomain: true,
     type:"GET"
    });
 
    request.done(function(data){
+    // console.log(data);
     console.log("successssssss");
     $("#product-search").hide();
+    $(".search-results").text(data[0]);
    });
    request.fail(function(data){
     console.log("fail");
