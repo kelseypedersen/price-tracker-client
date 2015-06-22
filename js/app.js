@@ -8,7 +8,6 @@ var userData;
 $(document).ready(function(){
   begin();
   // add Mary's js code
-  hardLanding();
   submitSearch();
 });
 
@@ -55,15 +54,14 @@ var ajaxLogin = function(authData){
     data: ajaxData
   }).done(function(response) {
     userData = userId;
+    loadHome();
   }).fail(function() {
     alert("Login Failed");
   });
 };
 // ============== Ajax-End ==============
 
-var hardLanding = function(){
-  $('.button').on('click', function(event){
-    event.preventDefault();
+var loadHome = function(){
 
   $('.hardLanding').remove();
   $(".search-product-form").css("display", "block");
@@ -78,10 +76,9 @@ var hardLanding = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
     });
-  });
 };
 
 
