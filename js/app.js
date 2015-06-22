@@ -15,7 +15,6 @@ var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
     fbAuth().then(function(authData){
-      fbData = authData;
       ajaxLogin(authData);
     });
   });
