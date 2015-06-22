@@ -14,7 +14,6 @@ $(document).ready(function(){
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
-      debugger
     fbAuth().then(function(authData){
       fbData = authData;
       ajaxLogin(authData);
@@ -38,11 +37,18 @@ var fbAuth = function(){
 
 var ajaxLogin = function(authData){
   userId = authData.facebook.id;
-  var ajaxData = {user:{oauth_id:userId}};
+  userName = authData.facebook.displayName;
+  var ajaxData = {
+    user: {
+      oauth_id:userId,
+      oauth_name:userName
+    }
+  };
+
   $.ajax({
-    url: baseUrl + "users/new",
+    url: baseUrl + "users",
     crossDomain: true,
-    type:"GET",
+    type:"post",
     data: ajaxData
   }).done(function(response) {
     userData = response;
