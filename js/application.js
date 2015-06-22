@@ -9,14 +9,9 @@ var hardLanding = function(){
     event.preventDefault();
 
   $('a').remove();
-  
+  $(".search-product-form").css("display", "block");
   });
 };
-
-
-
-
-
 
 
 var submitSearch = function(){
