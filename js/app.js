@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
+// ============== Ajax-Begin ==============
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
@@ -58,14 +59,13 @@ var ajaxLogin = function(authData){
     alert("Login Failed");
   });
 };
-
-// Add Mary's JS //
+// ============== Ajax-End ==============
 
 var hardLanding = function(){
-  $('a').on('click', function(event){
+  $('.button').on('click', function(event){
     event.preventDefault();
 
-  $('a').remove();
+  $('form').remove();
   $(".search-product-form").css("display", "block");
 
   var request = $.ajax({
