@@ -8,12 +8,12 @@ var userData;
 $(document).ready(function(){
   begin();
   // add Mary's js code
-  hardLanding();
   submitSearch();
 });
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
+// ============== Ajax-Begin ==============
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
@@ -54,18 +54,16 @@ var ajaxLogin = function(authData){
     data: ajaxData
   }).done(function(response) {
     userData = userId;
+    loadHome();
   }).fail(function() {
     alert("Login Failed");
   });
 };
+// ============== Ajax-End ==============
 
-// Add Mary's JS //
+var loadHome = function(){
 
-var hardLanding = function(){
-  $('a').on('click', function(event){
-    event.preventDefault();
-
-  $('a').remove();
+  $('.hardLanding').remove();
   $(".search-product-form").css("display", "block");
 
   var request = $.ajax({
@@ -78,10 +76,9 @@ var hardLanding = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
     });
-  });
 };
 
 
