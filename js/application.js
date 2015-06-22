@@ -27,7 +27,7 @@ var submitSearch = function(){
 
 
     for(i = 0; i < products.length; i++){
-      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + products[i].name + "</a></div>")
+      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
     };
 
    });
