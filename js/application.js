@@ -27,7 +27,7 @@ var submitSearch = function(){
 
 
     for(i = 0; i < products.length; i++){
-      $(".search-results").prepend("<div class='product'>" + products[i].clickUrl + "</div>")
+      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + products[i].name + "</a></div>")
     };
 
    });
