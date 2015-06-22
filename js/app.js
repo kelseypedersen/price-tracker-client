@@ -51,7 +51,7 @@ var ajaxLogin = function(authData){
     type:"post",
     data: ajaxData
   }).done(function(response) {
-    userData = response;
+    userData = userId;
   }).fail(function() {
     alert("Login Failed");
   });
