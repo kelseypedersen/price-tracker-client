@@ -1,6 +1,11 @@
 $(document).ready(function(){
+  welcomeForm();
   submitSearch();
 }); 
+
+var welcomeForm = function(){
+
+};
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -19,13 +24,12 @@ var submitSearch = function(){
     $("#product-search").hide();
 
     var products = data["products"]
-    var productResults = [];
+
 
     for(i = 0; i < products.length; i++){
-      productResults.push(products[i].name) 
-    }
+      $(".search-results").prepend("<div class='product'>" + products[i].clickUrl + "</div>")
+    };
 
-    $(".search-results").html(productResults);
    });
 
    request.fail(function(data){
