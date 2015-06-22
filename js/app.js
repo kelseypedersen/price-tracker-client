@@ -74,9 +74,8 @@ var loadHome = function(){
 
     request.done(function(data){
       var products = data["products"]
-
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
     });
 };
