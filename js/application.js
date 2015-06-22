@@ -7,7 +7,9 @@ $(document).ready(function(){
 var hardLanding = function(){
   $('a').on('click', function(event){
     event.preventDefault();
-    console.log("woooop woooooop")
+
+  $('a').remove();
+  
   });
 };
 
