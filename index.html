@@ -29,8 +29,9 @@
   <!-- Link for OAuth -->
 
   <div class="hardLanding">
+    <h1>Price Tracker</h1>
     <form class="button" action="/users" method="post">
-      <input type="submit" value="Enter">
+      <input type="submit" value="Log in With Facebook">
     </form>
   </div>
 
@@ -41,11 +42,40 @@
       <input type="submit" value="Search" name="search" />
     </form>
   </div>
-  <div class="search-results">
 
+  <div class="search-results">
   </div>
 
   <div class="softLanding">
+  </div>
+
+  <div class="show-page" style="display:none;">
+    <a href="#" class="back-button">Back</a>
+    <a class="prod-url" href="">
+      <img class="prod-image" alt="product image" src="">
+      <h2 class="prod-name"></h2>
+    </a>
+
+    <ul class="product-info">
+      <li class="price-reg-text">Regular Price:</li>
+      <li class="prod-orig-price"></li>
+      <li class="price-cur-text">Current Price:</li>
+      <li class="prod-current-price"></li>
+      <li class="price-stock-text">In Stock:</li>
+      <li class="prod-stock-status"></li>
+      <li class="price-brand-text">Brand:</li>
+      <li class="prod-brand"></li>
+      <li class="price-descr-text">Description:</li>
+      <li class="prod-description"></li>
+    </ul>
+    <form class="wish-form" action="" method="POST">
+      <p class="form-text">Add to Wishlist</p>
+      <input type="text" name="price" placeholder="Price You'd Pay" />
+      <br>
+      <input type="text" name="search" placeholder="Wait Time"/>
+      <br>
+      <input type="submit" value="Add to Wishlist" />
+    </form>
   </div>
 
 
