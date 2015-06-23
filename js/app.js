@@ -63,8 +63,10 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
 
-  $('.hardLanding').remove();
+  $(".hardLanding").remove();
   $(".search-product-form").css("display", "block");
+  $(".nav-menu").css("display", "block");
+  $(".container").css("display", "block");
 
   var request = $.ajax({
     url:"http://localhost:3000/products/newest_products",
@@ -76,7 +78,11 @@ var loadHome = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        if( i % 2 === 0){
+          $(".softLanding").append("<div class='column-a'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        }else{
+          $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        };
       };
     });
 };
