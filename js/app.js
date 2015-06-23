@@ -1,6 +1,6 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'https://[OUR APP HERE].herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
@@ -67,7 +67,7 @@ var loadHome = function(){
   $(".search-product-form").css("display", "block");
 
   var request = $.ajax({
-    url: "http://localhost:3000/products/newest_products",
+    url: baseUrl + "products/newest_products",
     crossDomain: true,
     type:"GET"
    });
@@ -88,7 +88,7 @@ var submitSearch = function(){
     event.preventDefault();
 
     var request = $.ajax({
-      url:"http://localhost:3000/products/results",
+      url: baseUrl + "products/results",
       data: $(this).serialize(),
       crossDomain: true,
       type:"GET"
