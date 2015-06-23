@@ -104,8 +104,10 @@ textarea {
 
 /* Enter Page Styles */
 body {
-  background-image: url("/images/background.jpg");
+  background-image: url("/images/disnewnew.png");
   font-family: 'Sans-serif';
+  opacity: .7;
+
 }
 
 header {
