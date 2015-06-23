@@ -28,11 +28,9 @@
     <gap:splash src="hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
     <gap:splash src="xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" /> -->
 
-    <!-- <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
-
+    <!-- <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" /> -->
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-
-    <access origin="*"/> -->
+      <!--   <access origin="*"/> -->
     <preference name="permissions" value="none"/>
     <!-- <preference name="splashscreen" value="xhdpi.png" /> -->
 
