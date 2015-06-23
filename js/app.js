@@ -67,19 +67,19 @@ var loadHome = function(){
   $(".search-product-form").css("display", "block");
 
   var request = $.ajax({
-    url:"http://localhost:3000/products/newest_products",
+    url: "http://localhost:3000/products/newest_products",
     crossDomain: true,
     type:"GET"
    });
 
-    request.done(function(data){
-      var products = data["products"]
+  request.done(function(data){
+    var products = data["products"]
 
-      for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='" + baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
-      };
-      showListener();
-    });
+    for(i = 0; i < products.length; i++){
+      $(".softLanding").append("<div class='product'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+    };
+    showListener();
+  });
 };
 
 
@@ -100,7 +100,7 @@ var submitSearch = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='product'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
       showListener();
     });
@@ -114,7 +114,8 @@ var submitSearch = function(){
 // The following is terribly coded. I'm sorry. <3 Jacob.
 
 var showListener = function(){
-  $("a").on("click", function(){
+  $(".prod-link").on("click", function(){
+    debugger
     event.preventDefault();
     var request = $.ajax({
       url: $(this).attr('href'),
@@ -123,6 +124,7 @@ var showListener = function(){
     });
     request.done(function(data){
       display(data);
+      backButton();
     });
     request.fail(function(data){
       console.log("fail");
@@ -130,15 +132,21 @@ var showListener = function(){
   });
 };
 
-// var backButton = function(){
-
-// };
+var backButton = function(){
+  $('.back-button').on("click", function(event){
+    event.preventDefault();
+    $('.show-page').hide();
+    $('.search-product-form').show();
+    $('.softLanding').show();
+  });
+};
 
 var display = function(shit){
   $('.search-product-form').hide();
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
 
+  $('.prod-url').attr('href', shit.clickUrl);
   $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
   $(".prod-name").html(shit.name);
   $(".prod-brand").html(shit.brand.name);
@@ -147,9 +155,3 @@ var display = function(shit){
   $(".prod-current-price").html(shit.salePrice);
   $(".prod-orig-price").html(shit.price);
 };
-  // $('.back-button').on("click", function(event){
-  //   event.preventDefault();
-  //   $('.show-page').hide();
-  //   $('.search-product-form').show();
-  //   $('.softLanding').show();
-  // });
