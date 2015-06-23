@@ -115,7 +115,6 @@ var submitSearch = function(){
 
 var showListener = function(){
   $(".prod-link").on("click", function(){
-    debugger
     event.preventDefault();
     var request = $.ajax({
       url: $(this).attr('href'),
@@ -142,16 +141,16 @@ var backButton = function(){
 };
 
 var display = function(shit){
-  $('.search-product-form').hide();
-  $('.softLanding').hide();
-  $('.show-page').removeAttr("style");
-
   $('.prod-url').attr('href', shit.clickUrl);
   $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
   $(".prod-name").html(shit.name);
   $(".prod-brand").html(shit.brand.name);
-  $(".prod-stock-status").html(shit.inStock);
-  $(".prod-description").html(shit.description);
-  $(".prod-current-price").html(shit.salePrice);
-  $(".prod-orig-price").html(shit.price);
+  $(".prod-stock").html(shit.inStock);
+  $(".prod-desc").html(shit.description);
+  $(".prod-cur").html(shit.salePrice);
+  $(".prod-reg").html(shit.price);
+
+  $('.search-product-form').hide();
+  $('.softLanding').hide();
+  $('.show-page').removeAttr("style");
 };
