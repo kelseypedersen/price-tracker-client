@@ -78,15 +78,14 @@ var loadHome = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        if( i % 2 === 0){
-          $(".softLanding").append("<div class='column-a'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
-        }else{
-          $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
-        };
+        // if( i % 2 === 0){
+          $(".softLanding").prepend("<div class='column-a'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+        // }else{
+        //   $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+        // };
       };
     });
 };
-
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -107,7 +106,7 @@ var submitSearch = function(){
 
 
     for(i = 0; i < products.length; i++){
-      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
     };
 
    });
@@ -117,5 +116,4 @@ var submitSearch = function(){
    });
   });
 };
-
 
