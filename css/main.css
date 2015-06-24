@@ -104,92 +104,91 @@ textarea {
 
 /* Enter Page Styles */
 body {
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-image: url("/images/disnewnew.png");
+  background-size: 100%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-header {
-  position: fixed;
-  width: 100%;
-  transform: translate(-50%, -50%);
-}
-
 .h1-header {
-  padding-top: 100px;
-  color: black;
-  font-size: xx-large;
+  padding-top: 20%;
   text-align: center;
+  font-size: xx-large;
+  position: absolute;
 }
 
 .container {
-  padding: 1em 1em 1em 1em;
-  width: 100%;
-  -webkit-box-shadow:   3px -3px 18px 1px rgba(0,0,0,0.75);
-  -moz-box-shadow:      3px -3px 18px 1px rgba(0,0,0,0.75);
-  box-shadow:           3px -3px 18px 1px rgba(0,0,0,0.75);
-  margin-bottom: 1em;
+  min-height: 1.1em;
+  width: 100%; 
+  font-size: 16px;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  outline: 0 !important;
 }
 
 
 .button {
   background-image: url("/images/icon.png");
   display: block;
-  padding: 100px;
+  padding: 150px;
   color: white;
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%; 
   margin-right: -50%;
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
-  background-size: 150px;
+  background-size: 250px;
 }
+
+/*.softLanding {
+  display: flex;
+  justify-content: center;
+}*/
 
 .column-a {
   float: left;
 }
 
-.column-b {
-  float: right;
+.sa {
+  position: relative;
+  padding: 5px;
+  width: 150px;
+  height: 200px;
+  border-radius: 2px;
+  border-color: red;
 }
 
+
 /* Nav Menu */
-.sm-img {
-  height: 100px;
+
+.clearfix {
+  background: #B2B2B2;
 }
 
 div.nav-menu {
-  padding: 0 20px;
-}
-
-div.nav-menu ul {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  left:0;
 }
 
 div.nav-menu ul li {
-  list-style: none;
   float: left;
 }
 
 div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
-  padding: 20px 10px 20px 20px;
-  text-decoration: none;
-  font-weight: bold;
+  padding: 20px 30px 20px 20px;
 }
 
-/* Nav menu for mobile */
 
-@media screen and (max-width: 480px){
-
-}
 
 /* ==========================================================================
    Helper classes
-   ========================================================================== */
+   ========================================================================== 
 
 /*
  * Hide visually and from screen readers:
