@@ -4,12 +4,35 @@ var baseUrl = 'http://localhost:3000/'
 
 var fbData;
 var userData;
+var tempProdId;
+var tempProdName;
 
 $(document).ready(function(){
   begin();
   // add Mary's js code
   submitSearch();
+  formHandler();
 });
+
+
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data
+    });
+  });
+};
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
@@ -42,18 +65,17 @@ var ajaxLogin = function(authData){
   userName = authData.facebook.displayName;
   var ajaxData = {
     user: {
-      oauth_id:userId,
-      oauth_name:userName
+      oauth_id: userId,
+      oauth_name: userName
     }
   };
-
   $.ajax({
     url: baseUrl + "users",
     crossDomain: true,
     type:"post",
     data: ajaxData
   }).done(function(response) {
-    userData = userId;
+    userData = response.user.id;
     loadHome();
   }).fail(function() {
     alert("Login Failed");
@@ -80,7 +102,7 @@ var loadHome = function(){
       for(i = 0; i < products.length; i++){
         $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
       };
-    showListener();  
+    showListener();
   });
 };
 
@@ -112,7 +134,7 @@ var submitSearch = function(){
   });
 };
 
-// The following is terribly coded. I'm sorry. <3 Jacob.
+// The following is terribly coded. Forgive me, for I have sinned. <3 Jacob.
 
 var showListener = function(){
   $(".prod-link").on("click", function(){
@@ -125,6 +147,8 @@ var showListener = function(){
     request.done(function(data){
       display(data);
       backButton();
+      tempProdId = data.id;
+      tempProdName = data.name;
     });
     request.fail(function(data){
       console.log("fail");
