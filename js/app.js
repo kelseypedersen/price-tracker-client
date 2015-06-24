@@ -1,6 +1,6 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'https://[OUR APP HERE].herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
@@ -69,51 +69,96 @@ var loadHome = function(){
   $(".container").css("display", "block");
 
   var request = $.ajax({
-    url:"http://localhost:3000/products/newest_products",
+    url: baseUrl + "products/newest_products",
     crossDomain: true,
     type:"GET"
    });
 
-    request.done(function(data){
-      var products = data["products"]
+  request.done(function(data){
+    var products = data["products"]
+
 
       for(i = 0; i < products.length; i++){
         // if( i % 2 === 0){
-          $(".softLanding").prepend("<div class='column-a'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+          $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
         // }else{
         //   $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
         // };
       };
     });
+    showListener();
+  });
 };
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
     event.preventDefault();
 
-   var request = $.ajax({
-    url:"http://localhost:3000/products/results",
-    data: $(this).serialize(),
-    crossDomain: true,
-    type:"GET"
-   });
+    var request = $.ajax({
+      url: baseUrl + "products/results",
+      data: $(this).serialize(),
+      crossDomain: true,
+      type:"GET"
+    });
 
-   request.done(function(data){
-    debugger
-    console.log("successssssss");
-    $(".softLanding").remove();
-    var products = data["products"]
+    request.done(function(data){
+      $(".softLanding").empty();
 
+      var products = data["products"]
 
-    for(i = 0; i < products.length; i++){
-      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
-    };
+      for(i = 0; i < products.length; i++){
+        $(".softLanding").append("<div class='product'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+      };
+      showListener();
+    });
 
-   });
-
-   request.fail(function(data){
-    console.log("fail");
-   });
+    request.fail(function(data){
+      console.log("fail");
+    });
   });
 };
 
+// The following is terribly coded. I'm sorry. <3 Jacob.
+
+var showListener = function(){
+  $(".prod-link").on("click", function(){
+    event.preventDefault();
+    var request = $.ajax({
+      url: $(this).attr('href'),
+      crossDomain: true,
+      type: "GET"
+    });
+    request.done(function(data){
+      display(data);
+      backButton();
+    });
+    request.fail(function(data){
+      console.log("fail");
+    });
+  });
+};
+
+
+var backButton = function(){
+  $('.back-button').on("click", function(event){
+    event.preventDefault();
+    $('.show-page').hide();
+    $('.search-product-form').show();
+    $('.softLanding').show();
+  });
+};
+
+var display = function(shit){
+  $('.prod-url').attr('href', shit.clickUrl);
+  $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
+  $(".prod-name").html(shit.name);
+  $(".prod-brand").html(shit.brand.name);
+  $(".prod-stock").html(shit.inStock);
+  $(".prod-desc").html(shit.description);
+  $(".prod-cur").html(shit.salePrice);
+  $(".prod-reg").html(shit.price);
+
+  $('.search-product-form').hide();
+  $('.softLanding').hide();
+  $('.show-page').removeAttr("style");
+};
