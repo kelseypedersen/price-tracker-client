@@ -11,7 +11,7 @@ $(document).ready(function(){
   begin();
   submitSearch();
   formHandler();
-  showWishlist
+  // showWishlist
 });
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
