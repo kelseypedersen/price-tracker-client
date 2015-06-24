@@ -159,8 +159,7 @@ body {
   padding: 5px;
   width: 150px;
   height: 200px;
-  border-radius: 2px;
-  border-color: red;
+  padding-left: 25px;
 }
 
 
