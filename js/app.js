@@ -16,11 +16,11 @@ $(document).ready(function(){
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
-var showWishlist = function(){
-  $(".nav-wishlist").on("click", function(event){
-    event.preventDefault();
-  })
-}
+// var showWishlist = function(){
+//   $(".nav-wishlist").on("click", function(event){
+//     event.preventDefault();
+//   })
+// }
 
 // ============== Ajax-Begin ==============
 var begin = function(){
