@@ -79,13 +79,9 @@ var loadHome = function(){
 
 
       for(i = 0; i < products.length; i++){
-        // if( i % 2 === 0){
-          $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
-        // }else{
-        //   $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
-        // };
+        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
       };
-    showListener();
+    showListener();  
   });
 };
 
