@@ -85,9 +85,10 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
 
-  $('.hardLanding').remove();
+  $(".hardLanding").remove();
   $(".search-product-form").css("display", "block");
-  $('.nav').removeAttr("style");
+  $(".nav-menu").css("display", "block");
+  $(".container").css("display", "block");
 
   var request = $.ajax({
     url: baseUrl + "products/newest_products",
@@ -98,13 +99,13 @@ var loadHome = function(){
   request.done(function(data){
     var products = data["products"]
 
-    for(i = 0; i < products.length; i++){
-      $(".softLanding").append("<div class='product'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
-    };
+
+      for(i = 0; i < products.length; i++){
+        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+      };
     showListener();
   });
 };
-
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -134,7 +135,7 @@ var submitSearch = function(){
   });
 };
 
-// The following is terribly coded. I'm sorry. <3 Jacob.
+// The following is terribly coded. Forgive me, for I have sinned. <3 Jacob.
 
 var showListener = function(){
   $(".prod-link").on("click", function(){

@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Do we need a normalize file? For mobile? -->
   <!-- No CSS File Yet, Update Link When CSS Added -->
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/trg.css">
+  <link rel="stylesheet" href="css/main.css">
 
   <!-- JQuery Library (Does this need to be updated for mobile?) -->
   <script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -27,31 +29,47 @@
   </header>
 
   <!-- The following is a placeholder for the nav bar link -->
-  <div class="nav" style="display:none;">
-    <a class="wish-button" href="#">Wishlist</a>
-  </div>
+
+<div class = "container" style="display:none;">
 
   <!-- Link for OAuth -->
   <div class="hardLanding">
-    <h1>Price Tracker</h1>
     <form class="button" action="/users" method="post">
       <input type="submit" value="Log in With Facebook">
     </form>
   </div>
 
   <div class="search-product-form" style="display:none;">
-    <h1>Price Tracker</h1>
     <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
       <input type="text" name="search"/>
       <input type="submit" value="Search" name="search" />
     </form>
   </div>
+</div>
 
   <div class="search-results">
   </div>
 
-  <div class="softLanding">
-  </div>
+<div class="softLanding">
+</div>
+
+  <footer>
+    <div class="nav-menu" style="display:none;">
+      <ul class="clearfix">
+        <li>
+          <a href="#"><img src="/images/instagram19.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/magnifying-glass32.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/add182.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/users81.png" height="40px"></a>
+        </li>
+      </ul>
+  </footer>
 
   <div class="show-page" style="display:none;">
     <a href="#" class="back-button">Back</a>
@@ -83,5 +101,7 @@
   </div>
 
   <footer></footer>
+
 </body>
+  <!-- <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div> -->
 </html>
