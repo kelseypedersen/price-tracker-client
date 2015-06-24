@@ -147,11 +147,13 @@ body {
 
 .column-a {
   float: left;
+  background-color: whitesmoke;
 }
 
 .sa {
   position: relative;
   padding: 5px;
+  padding-right: 12px;
   width: 150px;
   height: 200px;
   padding-left: 25px;
