@@ -82,6 +82,27 @@ var loadHome = function(){
       };
     showListener();  
   });
+// =======
+//   $(".hardLanding").remove();
+//   $(".search-product-form").css("display", "block");
+//   $(".nav-menu").css("display", "block");
+//   $(".container").css("display", "block");
+
+//   var request = $.ajax({
+//     url: baseUrl + "products/newest_products",
+//     crossDomain: true,
+//     type:"GET"
+//    });
+
+//   request.done(function(data){
+//     var products = data["products"]
+
+
+//       for(i = 0; i < products.length; i++){
+//         $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+//       };
+//     showListener();
+//   });
 };
 
 var submitSearch = function(){
@@ -142,6 +163,7 @@ var backButton = function(){
 };
 
 var display = function(shit){
+<<<<<<< HEAD
   $('.prod-url').attr('href', shit.clickUrl);
   $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
   $(".prod-name").html(shit.name);
@@ -155,3 +177,19 @@ var display = function(shit){
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
 };
+=======
+  $('.prod-url').attr('href', shit.clickUrl);
+  $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
+  $(".prod-name").html(shit.name);
+  // $(".prod-brand").html(shit.brand.name);
+  $(".prod-stock").html(shit.inStock);
+  // $(".prod-desc").html(shit.description);
+  $(".prod-cur").html(shit.salePrice);
+  $(".prod-reg").html(shit.price);
+
+  $('.search-product-form').hide();
+  $('.softLanding').hide();
+  $('.show-page').removeAttr("style");
+};
+
+>>>>>>> c06c99aa305223350d699757c2d34e752767ec7d
