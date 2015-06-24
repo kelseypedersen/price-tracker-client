@@ -74,7 +74,6 @@ var loadHome = function(){
     type:"GET"
    });
 
-<<<<<<< HEAD
   request.done(function(data){
     var products = data["products"]
 
@@ -85,31 +84,6 @@ var loadHome = function(){
     showListener();  
   });
 };
-=======
-
-    request.done(function(data){
-      var products = data["products"]
-      for(i = 0; i < products.length; i++){
-        // if( i % 2 === 0){
-          $(".softLanding").prepend("<div class='column-a'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
-        // }else{
-        //   $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
-        // };
-          showListener();
-      };
-    });
-// =======
-//   request.done(function(data){
-//     var products = data["products"]
-
-//     for(i = 0; i < products.length; i++){
-//       $(".softLanding").append("<div class='product'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
-//     };
-//     showListener();
-//   });
-
-// };
->>>>>>> master
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -127,10 +101,6 @@ var submitSearch = function(){
 
       var products = data["products"]
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
       for(i = 0; i < products.length; i++){
         $(".softLanding").append("<div class='product'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
@@ -164,10 +134,6 @@ var showListener = function(){
   });
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
@@ -191,7 +157,4 @@ var display = function(shit){
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
 };
-<<<<<<< HEAD
-=======
 
->>>>>>> master
