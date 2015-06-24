@@ -62,7 +62,6 @@ var ajaxLogin = function(authData){
 // ============== Ajax-End ==============
 
 var loadHome = function(){
-  debugger
   $(".hardLanding").remove();
   $(".search-product-form").css("display", "block");
   $(".nav-menu").css("display", "block");
@@ -116,7 +115,6 @@ var submitSearch = function(){
 // The following is terribly coded. I'm sorry. <3 Jacob.
 
 var showListener = function(){
-  debugger
   $(".prod-link").on("click", function(){
     event.preventDefault();
     var request = $.ajax({
@@ -147,9 +145,9 @@ var display = function(shit){
   $('.prod-url').attr('href', shit.clickUrl);
   $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
   $(".prod-name").html(shit.name);
-  $(".prod-brand").html(shit.brand.name);
+  // $(".prod-brand").html(shit.brand.name);
   $(".prod-stock").html(shit.inStock);
-  $(".prod-desc").html(shit.description);
+  // $(".prod-desc").html(shit.description);
   $(".prod-cur").html(shit.salePrice);
   $(".prod-reg").html(shit.price);
 
