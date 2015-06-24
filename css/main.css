@@ -186,6 +186,53 @@ div.nav-menu ul li a:visited {
   padding: 20px 30px 20px 20px;
 }
 
+/* Back Button */
+
+.back-arrow {
+  padding-top: 20px;
+  padding: 20px;
+}
+
+/* Product Show Page */
+.show-page {
+  background-color: white;
+  color: dimgrey;
+}
+
+.prod-image {
+  height: 500px;
+  width: 240px;
+  padding-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/* Text on Show Page */
+
+.filling{
+  height: 100px;
+  width: 100%;
+  background-color: white;
+}
+
+.prod-name {
+  color: dimgrey;
+  text-align: center;
+  font-size: larger;
+  display: block;
+}
+
+.prod-url {
+  text-decoration: none;
+  padding-bottom: 10px
+}
+
+/*.text-reg {
+  text-align: -webkit-center;
+}*/
+
+
+
 
 
 /* ==========================================================================
