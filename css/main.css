@@ -132,7 +132,7 @@ body {
 
 
 .button {
-  background-image: url("/images/icon.png");
+  background-image: url("/images/logo.png");
   display: block;
   padding: 150px;
   color: white;
@@ -144,11 +144,6 @@ body {
   background-repeat: no-repeat;
   background-size: 250px;
 }
-
-/*.softLanding {
-  display: flex;
-  justify-content: center;
-}*/
 
 .column-a {
   float: left;
