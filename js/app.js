@@ -1,6 +1,6 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-// var baseUrl = 'http://localhost:3000/'
-var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+var baseUrl = 'http://localhost:3000/'
+// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
@@ -80,12 +80,11 @@ var loadHome = function(){
 
       for(i = 0; i < products.length; i++){
         // if( i % 2 === 0){
-          $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+          $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
         // }else{
         //   $(".softLanding").append("<div class='column-b'><a href='" + baseUrl + "/products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
         // };
       };
-    });
     showListener();
   });
 };
@@ -121,6 +120,7 @@ var submitSearch = function(){
 // The following is terribly coded. I'm sorry. <3 Jacob.
 
 var showListener = function(){
+  debugger
   $(".prod-link").on("click", function(){
     event.preventDefault();
     var request = $.ajax({
