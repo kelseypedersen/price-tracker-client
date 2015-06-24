@@ -62,7 +62,7 @@ var ajaxLogin = function(authData){
 // ============== Ajax-End ==============
 
 var loadHome = function(){
-
+  debugger
   $(".hardLanding").remove();
   $(".search-product-form").css("display", "block");
   $(".nav-menu").css("display", "block");
