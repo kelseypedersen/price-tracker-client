@@ -164,7 +164,7 @@ body {
 /* Nav Menu */
 
 .clearfix {
-  background: #B2B2B2;
+  background: #191919;
 }
 
 div.nav-menu {
@@ -176,6 +176,10 @@ div.nav-menu {
 
 div.nav-menu ul li {
   float: left;
+}
+
+div.nav-menu ul li:hover {
+  background-color: #FFFFFF;
 }
 
 div.nav-menu ul li a:link,
