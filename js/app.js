@@ -1,15 +1,38 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-// var baseUrl = 'http://localhost:3000/'
-var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+var baseUrl = 'http://localhost:3000/'
+// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
+var tempProdId;
+var tempProdName;
 
 $(document).ready(function(){
   begin();
   // add Mary's js code
   submitSearch();
+  formHandler();
 });
+
+
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data
+    });
+  });
+};
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
@@ -42,18 +65,17 @@ var ajaxLogin = function(authData){
   userName = authData.facebook.displayName;
   var ajaxData = {
     user: {
-      oauth_id:userId,
-      oauth_name:userName
+      oauth_id: userId,
+      oauth_name: userName
     }
   };
-
   $.ajax({
     url: baseUrl + "users",
     crossDomain: true,
     type:"post",
     data: ajaxData
   }).done(function(response) {
-    userData = userId;
+    userData = response.user.id;
     loadHome();
   }).fail(function() {
     alert("Login Failed");
@@ -65,6 +87,7 @@ var loadHome = function(){
 
   $('.hardLanding').remove();
   $(".search-product-form").css("display", "block");
+  $('.nav').removeAttr("style");
 
   var request = $.ajax({
     url: baseUrl + "products/newest_products",
@@ -124,6 +147,8 @@ var showListener = function(){
     request.done(function(data){
       display(data);
       backButton();
+      tempProdId = data.id;
+      tempProdName = data.name;
     });
     request.fail(function(data){
       console.log("fail");
