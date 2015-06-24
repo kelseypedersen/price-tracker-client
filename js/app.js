@@ -1,4 +1,5 @@
-var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
+
+svar ref = new Firebase("https://pricetracker2015.firebaseio.com/");
 var baseUrl = 'http://localhost:3000/'
 // var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
@@ -6,12 +7,20 @@ var fbData;
 var userData;
 
 $(document).ready(function(){
-  begin();
-  // add Mary's js code
-  submitSearch();
+  begin();
+  submitSearch();
+  formHandler();
+  showWishlist
 });
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
+
+// Jacobs shit in progress
+// var showWishlist = function(){
+//   $(".nav-wishlist").on("click", function(event){
+//     event.preventDefault();
+//   })
+// }
 
 // ============== Ajax-Begin ==============
 var begin = function(){
@@ -176,4 +185,23 @@ var display = function(shit){
   $('.search-product-form').hide();
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
+};
+
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data
+    });
+  });
 };
