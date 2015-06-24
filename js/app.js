@@ -155,9 +155,9 @@ var display = function(shit){
   $('.prod-url').attr('href', shit.clickUrl);
   $('.prod-image').attr('src', shit.image.sizes.IPhone.url);
   $(".prod-name").html(shit.name);
-  $(".prod-brand").html(shit.brand.name);
+  // $(".prod-brand").html(shit.brand.name);
   $(".prod-stock").html(shit.inStock);
-  $(".prod-desc").html(shit.description);
+  // $(".prod-desc").html(shit.description);
   $(".prod-cur").html(shit.salePrice);
   $(".prod-reg").html(shit.price);
 
