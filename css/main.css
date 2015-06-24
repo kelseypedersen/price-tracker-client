@@ -105,8 +105,8 @@ textarea {
 /* Enter Page Styles */
 body {
   background-repeat: no-repeat;
-  background-image: url("/images/disnewnew.png");
-  background-size: 100%;
+  background-image: url("/images/bg.png");
+/*  background-size: 100%;*/
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
