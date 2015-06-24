@@ -180,3 +180,4 @@ var display = function(shit){
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
 };
+
