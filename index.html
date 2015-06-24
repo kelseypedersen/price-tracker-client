@@ -1,106 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Do we need a normalize file? For mobile? -->
-  <!-- No CSS File Yet, Update Link When CSS Added -->
-  <link rel="stylesheet" href="css/trg.css">
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do we need a normalize file? For mobile? -->
+  <!-- No CSS File Yet, Update Link When CSS Added -->
+  <link rel="stylesheet" href="css/trg.css">
+  <link rel="stylesheet" href="css/main.css">
 
-  <!-- JQuery Library (Does this need to be updated for mobile?) -->
-  <script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <!-- Used for PhoneGap -->
-  <script type="text/javascript" charset="utf-8" src="cordova.js">
-  </script>
-  <!-- Pulls FireBase Shiz (this needs to be put into a file eventually) -->
-  <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-  <!-- PriceTracker JS File -->
-  <script charset="utf-8" src="js/app.js"></script>
+  <!-- JQuery Library (Does this need to be updated for mobile?) -->
+  <script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <!-- Used for PhoneGap -->
+  <script type="text/javascript" charset="utf-8" src="cordova.js">
+  </script>
+  <!-- Pulls FireBase Shiz (this needs to be put into a file eventually) -->
+  <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+  <!-- PriceTracker JS File -->
+  <script charset="utf-8" src="js/app.js"></script>
 
 </head>
 
 <body>
 
-  <header id="welcomeForm">
-  </header>
+  <!-- Link for OAuth -->
 
-  <!-- The following is a placeholder for the nav bar link -->
-
-
-  <!-- Link for OAuth -->
-  <div class="hardLanding">
-    <form class="button" action="/users" method="post"></form>
-  </div>
+  <div class="hardLanding">
+    <form class="button" action="/users" method="post"></form>
+  </div>
 
 <div class = "container" style="display:none;">
 
-  <div class="search-product-form" style="display:none;">
-    <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
-      <input type="text" name="search"/>
-      <input type="submit" value="Search" name="search" />
-    </form>
-  </div>
+  <div class="search-product-form" style="display:none;">
+    <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
+      <input type="text" name="search"/>
+      <input type="submit" value="Search" name="search" />
+    </form>
+  </div>
 </div>
 
-  <div class="search-results">
-  </div>
+  <div class="search-results">
+  </div>
 
 <div class="softLanding">
 </div>
 
-  <footer>
-    <div class="nav-menu" style="display:none;">
-      <ul class="clearfix">
-        <li>
-          <a href="#"><img src="/images/instagram19.png" height="40px"></a>
-        </li>
-        <li>
-          <a href="#"><img src="/images/magnifying-glass32.png" height="40px"></a>
-        </li>
-        <li>
-          <a href="#"><img src="/images/add182.png" height="40px"></a>
-        </li>
-        <li>
-          <a href="#"><img src="/images/users81.png" height="40px"></a>
-        </li>
-      </ul>
-  </footer>
+  <footer>
+    <div class="nav-menu" style="display:none;">
+      <ul class="clearfix">
+        <li>
+          <a href="#"><img src="/images/instagram19.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/magnifying-glass32.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/add182.png" height="40px"></a>
+        </li>
+        <li>
+          <a href="#"><img src="/images/users81.png" height="40px"></a>
+        </li>
+      </ul>
+  </footer>
 
-  <div class="show-page" style="display:none;">
-    <a href="#" class="back-button">Back</a>
-    <a class="prod-url" href="">
-      <img class="prod-image" alt="product image" src="">
-      <h2 class="prod-name"></h2>
-    </a>
+  <div class="show-page" style="display:none;">
+    <a href="#" class="back-button">Back</a>
+    <a class="prod-url" href="">
+      <img class="prod-image" alt="product image" src="">
+      <h2 class="prod-name"></h2>
+    </a>
 
-    <ul class="product-info">
-      <li class="text-reg">Regular Price:</li>
-      <li class="prod-reg"></li>
-      <li class="text-cur">Current Price:</li>
-      <li class="prod-cur"></li>
-      <li class="text-stock">In Stock:</li>
-      <li class="prod-stock"></li>
-      <li class="text-brand">Brand:</li>
-      <li class="prod-brand"></li>
-      <li class="text-desc">Description:</li>
-      <li class="prod-desc"></li>
-    </ul>
-    <form class="wish-form" action="" method="POST">
-      <p class="form-text">Add to Wishlist</p>
-      <input class="fuck-up" type="text" name="price" placeholder="Price You'd Pay" />
-      <br>
-      <!-- <input type="text" name="search" placeholder="Wait Time"/>
-      <br> -->
-      <input type="submit" value="Add to Wishlist" />
-    </form>
-  </div>
+    <ul class="product-info">
+      <li class="text-reg">Regular Price:</li>
+      <li class="prod-reg"></li>
+      <li class="text-cur">Current Price:</li>
+      <li class="prod-cur"></li>
+      <li class="text-stock">In Stock:</li>
+      <li class="prod-stock"></li>
+      <li class="text-brand">Brand:</li>
+      <li class="prod-brand"></li>
+      <li class="text-desc">Description:</li>
+      <li class="prod-desc"></li>
+    </ul>
+    <form class="wish-form" action="" method="POST">
+      <p class="form-text">Add to Wishlist</p>
+      <input type="text" name="price" placeholder="Price You'd Pay" />
+      <br>
+      <input type="text" name="search" placeholder="Wait Time"/>
+      <br>
+      <input type="submit" value="Add to Wishlist" />
+    </form>
+  </div>
 
-  <footer></footer>
 
 </body>
-  <!-- <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div> -->
+  <!-- <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div> -->
 </html>
