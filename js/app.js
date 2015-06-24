@@ -1,6 +1,6 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-// var baseUrl = 'http://localhost:3000/'
-var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+var baseUrl = 'http://localhost:3000/'
+// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
@@ -74,6 +74,18 @@ var loadHome = function(){
     type:"GET"
    });
 
+<<<<<<< HEAD
+  request.done(function(data){
+    var products = data["products"]
+
+
+      for(i = 0; i < products.length; i++){
+        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+      };
+    showListener();  
+  });
+};
+=======
 
     request.done(function(data){
       var products = data["products"]
@@ -97,6 +109,7 @@ var loadHome = function(){
 //   });
 
 // };
+>>>>>>> master
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -114,7 +127,10 @@ var submitSearch = function(){
 
       var products = data["products"]
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
       for(i = 0; i < products.length; i++){
         $(".softLanding").append("<div class='product'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
@@ -130,6 +146,7 @@ var submitSearch = function(){
 // The following is terribly coded. I'm sorry. <3 Jacob.
 
 var showListener = function(){
+  debugger
   $(".prod-link").on("click", function(){
     event.preventDefault();
     var request = $.ajax({
@@ -147,6 +164,10 @@ var showListener = function(){
   });
 };
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
@@ -170,4 +191,7 @@ var display = function(shit){
   $('.softLanding').hide();
   $('.show-page').removeAttr("style");
 };
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
