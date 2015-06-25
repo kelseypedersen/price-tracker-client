@@ -1,57 +1,75 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-// var baseUrl = 'http://localhost:3000/'
-var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+var baseUrl = 'http://localhost:3000/'
+// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
 var tempProdId;
 var tempProdName;
 
-$(function(){
-  // builds the DOM
-  initialize();
+$(document).ready(function(){
   begin();
   submitSearch();
   formHandler();
+});
 
-  fbAuth();
-  ajaxLogin();
-  submitSearch();
-  showListener();
-  backButton();
-  display();
+  // fbAuth();
+  // ajaxLogin();
+  // submitSearch();
+  // showListener();
+  // backButton();
+  // display();
 
 
-  bindEvents();
+  // bindEvents();
   // $('#facebooklogin').click(function(event){
   //   alert('fb button clicked!');
   // });
 
-});
 
 // var bindEvents = function(){
 
-  var formHandler = function(){
-    $('.wish-form').on("submit", function(event){
-      event.preventDefault();
-      var formData = $('.fuck-up').val();
-      var data = {
-          wishPrice: formData,
-          fbId: fbData,
-          prodId: tempProdId,
-          prodName: tempProdName,
-      }
-      var response = $.ajax({
-        url: baseUrl + "users/" + userData + "/wants",
-        crossDomain: true,
-        type: 'post',
-        data: data
-      });
+//   var formHandler = function(){
+//     $('.wish-form').on("submit", function(event){
+//       event.preventDefault();
+//       var formData = $('.fuck-up').val();
+//       var data = {
+//           wishPrice: formData,
+//           fbId: fbData,
+//           prodId: tempProdId,
+//           prodName: tempProdName,
+//       }
+//       var response = $.ajax({
+//         url: baseUrl + "users/" + userData + "/wants",
+//         crossDomain: true,
+//         type: 'post',
+//         data: data
+//       });
+//     });
+//   };
+// // };
+
+// });
+
+
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data
     });
-  };
-// };
-
-
+  });
+};
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
