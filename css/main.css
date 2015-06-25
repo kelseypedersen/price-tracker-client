@@ -129,6 +129,7 @@ body{
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-size: 150px;
+  background-color: green;
 }
 
 .container {
@@ -161,6 +162,10 @@ body{
   padding-left: 25px;
 }
 
+.search-icon {
+  height: 1em;
+}
+
 
 /* Nav Menu */
 
@@ -191,6 +196,12 @@ div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
   padding: 20px 55px 20px 30px;
+}
+
+.search-product-form{
+  padding-bottom: 5px;
+  padding-top: 5px
+  background-color: whitesmoke;
 }
 
 /* Back Button */

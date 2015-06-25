@@ -7,36 +7,88 @@ var userData;
 var tempProdId;
 var tempProdName;
 
-$(document).ready(function(){
+$(function(){
+  // ******* Kelsey's Playground *******
+  // builds the DOM
+  // initialize();
+  // ******* End of Kelsey's Playground *******
   begin();
-  // add Mary's js code
   submitSearch();
   formHandler();
+
 });
 
+// ******* Kelsey's Sandbox *******
 
-var formHandler = function(){
-  $('.wish-form').on("submit", function(event){
+// var renderHomeView = function(){
+//   var html =
+//     "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
+
+//   $('body').html(html);
+// };
+
+// var initialize = function(){
+//   var self = this;
+//   // this.store = new MemoryStore(function(){
+//     self.renderHomeView();
+//     console.log('rendered homeview');
+//   // });
+// };
+
+  //bindEvents();
+  // $('#facebooklogin').click(function(event){
+  //   alert('fb button clicked!');
+  // });
+
+
+// var showWishlist = function(){
+//   $(".nav-wishlist").on("click", function(event){
+//     event.preventDefault();
+//   })
+// }
+
+// ******* End of Kelsey's Sandbox *******
+
+// ============== OAuth-Begin ==============
+
+var wishlist = function(){
+  showWishlist();
+};
+
+var populateWishList = function(){
+  var request = $.ajax({
+    url: baseUrl + "users/" + userData + "/wants",
+    crossDomain: true,
+    type:"get",
+  });
+
+  request.done(function(response){
+    for(i = 0; i < response.length; i++){
+      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
+    };
+  });
+
+  request.fail(function(){
+    console.log("populateWishList ajax call failed.");
+  })
+};
+
+var showWishlist = function(){
+  $(".nav-wishlist").on("click", function(event){
     event.preventDefault();
-    var formData = $('.fuck-up').val();
-    var data = {
-        wishPrice: formData,
-        fbId: fbData,
-        prodId: tempProdId,
-        prodName: tempProdName,
-    }
-    var response = $.ajax({
-      url: baseUrl + "users/" + userData + "/wants",
-      crossDomain: true,
-      type: 'post',
-      data: data
-    });
+
+    populateWishList();
+
+    $('.show-page').hide();
+    $('.search-product-form').hide();
+
+    $('.softLanding').hide();
+    $('.wish-page').show();
   });
 };
 
-// +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
-
 // ============== Ajax-Begin ==============
+
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
@@ -77,11 +129,12 @@ var ajaxLogin = function(authData){
   }).done(function(response) {
     userData = response.user.id;
     loadHome();
+    wishlist();
   }).fail(function() {
     alert("Login Failed");
   });
 };
-// ============== Ajax-End ==============
+// ============== OAuth-End ==============
 
 var loadHome = function(){
   $(".hardLanding").remove();
@@ -133,6 +186,7 @@ var submitSearch = function(){
 
       for(i = 0; i < products.length; i++){
         $(".softLanding").append("<div class='columns'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+
       };
       showListener();
     });
@@ -143,7 +197,6 @@ var submitSearch = function(){
   });
 };
 
-// The following is terribly coded. Forgive me, for I have sinned. <3 Jacob.
 
 var showListener = function(){
   $(".prod-link").on("click", function(){
@@ -158,8 +211,12 @@ var showListener = function(){
       $(".container").css("display", "block");
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
+      $(".container").hide();
       display(data);
       backButton();
+
+      // searchButton();
+
       tempProdId = data.id;
       tempProdName = data.name;
     });
@@ -178,6 +235,8 @@ var backButton = function(){
     $('.show-page').hide();
     $('.search-product-form').show();
     $('.softLanding').show();
+    $(".container").css("display", "block");
+
   });
 };
 
@@ -188,7 +247,7 @@ var homeButton = function(){
     event.preventDefault();
     $(".container").css("display", "block");
     $('.softLanding').show();
-    $('.show-page').hide(); 
+    $('.show-page').hide();
   });
 };
 
@@ -218,3 +277,22 @@ var display = function(shit){
   $('.show-page').removeAttr("style");
 };
 
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    debugger
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data,
+    });
+  });
+};
