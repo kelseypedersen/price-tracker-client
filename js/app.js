@@ -64,7 +64,7 @@ var populateWishList = function(){
 
   request.done(function(response){
     for(i = 0; i < response.length; i++){
-      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[0].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[12].prod_name + "</p><a class='delete-link' href='" + response[0].product_id + "'>Delete</a><a class='update-link' href='" + response[0].product_id + "'>Edit</a></div>")
+      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
     };
   });
 
