@@ -270,11 +270,14 @@ var display = function(shit){
   // $(".prod-brand").html(shit.brand.name);
   $(".prod-stock").html(shit.inStock);
   // $(".prod-desc").html(shit.description);
-  $(".prod-cur").html(shit.salePrice);
-  $(".prod-reg").html(shit.price);
+  $(".prod-cur").html("$" + shit.salePrice);
+
+  $(".prod-reg").html("$" + shit.price);
 
   $('.search-product-form').hide();
   $('.softLanding').hide();
+  $('#add-confirm').hide();
+  $('.wish-form').show();
   $('.show-page').removeAttr("style");
 };
 
@@ -296,6 +299,9 @@ var formHandler = function(){
       data: data,
     });
     request.done(function(response){
+      $('.wish-form').hide();
+      $('#add-confirm').show();
+      $('.fuck-up').val('');
     });
     request.fail(function(response){
       console.log("Ajax call failed:");
