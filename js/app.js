@@ -85,7 +85,10 @@ var populateWishList = function(){
   request.done(function(response){
     clearWishList();
     for(i = 0; i < response.length; i++){
-      $('.wish-item-container').prepend("<div class='wish-item column'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image wish-item' src='" + response[i].url + "' /></a><div class='item-description>'<p class='item-name'>" + response[i].prod_name + "</p></div><div class='wish-links'><a class='delete-link' href='" + response[i].product_id + "'>Delete </a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
+      if(response[i].fulfilled == true){
+              $('.wish-item-container').prepend("<div class='wish-item column'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image wish-item' src='" + response[i].url + "' /></a><div class='item-description>'<p class='item-name'>" + response[i].prod_name + "</p><p class='wish-price'>Your preferred price: $" + response[i].max_price + "</p></div><div class='wish-links'><a class='delete-link' href='" + response[i].product_id + "'>Delete </a><a class='update-link' href='" + response[i].product_id + "'>Edit</a><div class='check'><img class='fulfilled' src='../images/check.png'></div>")
+      } else {
+      $('.wish-item-container').prepend("<div class='wish-item column'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image wish-item' src='" + response[i].url + "' /></a><div class='item-description>'<p class='item-name'>" + response[i].prod_name + "</p></div><p class='wish-price'>Your preferred price: $" + response[i].max_price + "</p><div class='wish-links'><a class='delete-link' href='" + response[i].product_id + "'>Delete </a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")}
     };
   });
   request.fail(function(){
