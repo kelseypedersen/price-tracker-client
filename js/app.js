@@ -297,5 +297,9 @@ var formHandler = function(){
     });
     request.done(function(response){
     });
+    request.fail(function(response){
+      console.log("Ajax call failed:");
+      console.log(response);
+    });
   });
 };
