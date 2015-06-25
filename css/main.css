@@ -121,7 +121,7 @@ body{
   background-image: url("/images/icon.png");
   display: block;
   padding: 100px;
-  color: white;
+  color: white; 
   position: absolute;
   left: 50%;
   top: 50%;
