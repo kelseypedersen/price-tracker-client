@@ -124,6 +124,7 @@ var submitSearch = function(){
     });
 
     request.done(function(data){
+      $(".container").css("display", "block");
       $(".softLanding").empty();
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
@@ -154,6 +155,7 @@ var showListener = function(){
     });
 
     request.done(function(data){
+      $(".container").css("display", "block");
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
       display(data);
@@ -170,6 +172,7 @@ var showListener = function(){
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
+    $(".container").css("display", "block");
     $("html").css('background-image', '');
     $("html").css('background-color', 'white');
     $('.show-page').hide();
@@ -183,14 +186,16 @@ var backButton = function(){
 var homeButton = function(){
   $('.home-button').on("click", function(event){
     event.preventDefault();
+    $(".container").css("display", "block");
     $('.softLanding').show();
-    $('.show-page').hide();
+    $('.show-page').hide(); 
   });
 };
 
 var profileButton = function(){
   $('.profile-button').on("click", function(event){
     event.preventDefault();
+    $(".container").hide();
     $('.softLanding').hide();
     $('.show-page').hide();
   });
