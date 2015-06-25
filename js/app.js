@@ -3,7 +3,7 @@ var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
 var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
-var userData = 1;
+var userData;
 var tempProdId;
 var tempProdName;
 var tempProdUrl;
