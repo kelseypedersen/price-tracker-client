@@ -86,7 +86,7 @@ var loadHome = function(){
 
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").prepend("<div class='columns'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
       };
     showListener();
   });
@@ -109,7 +109,7 @@ var submitSearch = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='column-a'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='columns'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
       showListener();
     });
