@@ -91,6 +91,7 @@ var showWishlist = function(){
 
 var begin = function(){
   $('.button').on('click', function(e){
+    debugger
     e.preventDefault();
     fbAuth().then(function(authData){
       ajaxLogin(authData);
