@@ -125,7 +125,7 @@ body{
   background-image: url("../images/icon.png");
   display: block;
   padding: 100px;
-  color: white;
+  color: white; 
   position: absolute;
   left: 50%;
   top: 50%;
@@ -190,7 +190,7 @@ div.nav-menu ul li {
 }
 
 div.nav-menu ul li:hover {
-  background-color: #999999;
+  background-color: #6B142E;
 }
 
 div.nav-menu ul li a:link,
