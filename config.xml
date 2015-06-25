@@ -10,16 +10,12 @@
     <name>Price Tracker</name>
 
     <description>
-        DBC Final Project June 2015
+        Test for Price Tracker
     </description>
 
     <author href="https://kpedersen00.github.io" email="kelseypedersen@gmail.com">
         Kelsey Pedersen
     </author>
-
-    <preference name="permissions" value="none"/>
-
-    <access origin="*"/>
 
     <!--
       If you do not want any permissions to be added to your app, add the
