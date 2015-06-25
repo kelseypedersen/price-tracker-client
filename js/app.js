@@ -1,17 +1,32 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
 var tempProdId;
 var tempProdName;
 
-$(document).ready(function(){
+$(function(){
+  // builds the DOM
+  initialize();
   begin();
   submitSearch();
-  formHandler();
 });
+
+// ============== OAuth-Begin ==============
+
+  //bindEvents();
+  // $('#facebooklogin').click(function(event){
+  //   alert('fb button clicked!');
+  // });
+
+
+// var showWishlist = function(){
+//   $(".nav-wishlist").on("click", function(event){
+//     event.preventDefault();
+//   })
+// }
 
 var wishlist = function(){
   showWishlist();
@@ -44,14 +59,29 @@ var showWishlist = function(){
     $('.show-page').hide();
     $('.search-product-form').hide();
 
-// +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
     $('.softLanding').hide();
     $('.wish-page').show();
   });
 };
 
-// The following is terribly coded. Forgive me, for I have sinned. <3 Jacob.
-// ============== OAuth-Begin ==============
+
+var renderHomeView = function(){
+  var html =
+    "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
+
+  $('body').html(html);
+};
+
+var initialize = function(){
+  var self = this;
+  // this.store = new MemoryStore(function(){
+    self.renderHomeView();
+    console.log('rendered homeview');
+  // });
+};
+
+// ============== Ajax-Begin ==============
+
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
@@ -101,7 +131,7 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
   $(".hardLanding").remove();
-  $(".search-product-form").css("display", "block");
+  $(".search-product-form").hide();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
 
@@ -112,11 +142,15 @@ var loadHome = function(){
    });
 
   request.done(function(data){
+
+    $("html").css('background-image', '');
+    $("html").css('background-color', 'white');
+
     var products = data["products"]
 
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").prepend("<div class='columns'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
       };
     showListener();
   });
@@ -135,11 +169,14 @@ var submitSearch = function(){
 
     request.done(function(data){
       $(".softLanding").empty();
+      $("html").css('background-image', '');
+      $("html").css('background-color', 'white');
 
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='product'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='columns'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+
       };
       showListener();
     });
@@ -159,9 +196,13 @@ var showListener = function(){
       crossDomain: true,
       type: "GET"
     });
+
     request.done(function(data){
+      $("html").css('background-image', '');
+      $("html").css('background-color', 'white');
       display(data);
       backButton();
+      searchButton();
       tempProdId = data.id;
       tempProdName = data.name;
     });
@@ -174,11 +215,24 @@ var showListener = function(){
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
+    $("html").css('background-image', '');
+    $("html").css('background-color', 'white');
     $('.show-page').hide();
     $('.search-product-form').show();
     $('.softLanding').show();
   });
 };
+
+//++++++++++++ Nav Bar ++++++++++++++++++++++++//
+
+// var searchButton = function(){
+//   $('.search-button').on("click", function(event){
+//     event.preventDefault();
+//     $('.softLanding').hide();
+//   });
+// };
+
+//++++++++++++ end ++++++++++++++++++++++++//
 
 var display = function(shit){
   $('.prod-url').attr('href', shit.clickUrl);
