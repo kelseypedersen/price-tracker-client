@@ -234,6 +234,8 @@ var backButton = function(){
     $("html").css('background-image', '');
     $("html").css('background-color', 'white');
     $('.show-page').hide();
+    $(".prod-cur").hide();
+    $(".text-cur").hide();
     $('.search-product-form').show();
     $('.softLanding').show();
     $(".container").css("display", "block");
@@ -270,7 +272,11 @@ var display = function(shit){
   // $(".prod-brand").html(shit.brand.name);
   $(".prod-stock").html(shit.inStock);
   // $(".prod-desc").html(shit.description);
-  $(".prod-cur").html("$" + shit.salePrice);
+  if(shit.salePrice !== undefined){
+    $(".prod-cur").show();
+    $(".text-cur").show();
+    $(".prod-cur").html("$" + shit.salePrice);
+  }
 
   $(".prod-reg").html("$" + shit.price);
 
