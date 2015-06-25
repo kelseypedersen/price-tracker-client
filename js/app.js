@@ -56,22 +56,6 @@ var wishlist = function(){
   showWishlist();
 };
 
-var populateWishList = function(){
-  var request = $.ajax({
-    url: baseUrl + "users/" + userData + "/wants",
-    crossDomain: true,
-    type:"get",
-  });
-
-  request.done(function(response){
-    for(i = 0; i < response.length; i++){
-      $('.wish-item-container').prepend("<div class='wish-item column'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image wish-item' src='" + response[i].url + "' /></a><div class='item-description>'<p class='item-name'>" + response[i].prod_name + "</p></div><div class='wish-links'><a class='delete-link' href='" + response[i].product_id + "'>Delete </a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
-    };
-  });
-  request.fail(function(){
-    console.log("populateWishList ajax call failed.");
-  })
-};
 
 var showWishlist = function(){
   $("#nav-wishlist").on("click", function(event){
@@ -86,6 +70,29 @@ var showWishlist = function(){
     $('.wish-page').show();
   });
 };
+
+var clearWishList = function(){
+  $(".wish-item-container").empty();
+};
+
+var populateWishList = function(){
+  var request = $.ajax({
+    url: baseUrl + "users/" + userData + "/wants",
+    crossDomain: true,
+    type:"get",
+  });
+
+  request.done(function(response){
+    clearWishList();
+    for(i = 0; i < response.length; i++){
+      $('.wish-item-container').prepend("<div class='wish-item column'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image wish-item' src='" + response[i].url + "' /></a><div class='item-description>'<p class='item-name'>" + response[i].prod_name + "</p></div><div class='wish-links'><a class='delete-link' href='" + response[i].product_id + "'>Delete </a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
+    };
+  });
+  request.fail(function(){
+    console.log("populateWishList ajax call failed.");
+  })
+};
+
 
 // ============== Ajax-Begin ==============
 
