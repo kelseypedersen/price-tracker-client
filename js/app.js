@@ -1,9 +1,9 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
-var userData;
+var userData = 1;
 var tempProdId;
 var tempProdName;
 var tempProdUrl;
