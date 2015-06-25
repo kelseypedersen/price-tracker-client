@@ -131,7 +131,7 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
   $(".hardLanding").remove();
-  $(".search-product-form").hide();
+  $(".search-product-form").show();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
 
@@ -168,6 +168,7 @@ var submitSearch = function(){
     });
 
     request.done(function(data){
+      $(".container").css("display", "block");
       $(".softLanding").empty();
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
@@ -201,9 +202,10 @@ var showListener = function(){
     request.done(function(data){
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
+      $(".container").hide();
       display(data);
       backButton();
-      searchButton();
+      // searchButton();
       tempProdId = data.id;
       tempProdName = data.name;
     });
@@ -221,6 +223,8 @@ var backButton = function(){
     $('.show-page').hide();
     $('.search-product-form').show();
     $('.softLanding').show();
+    $(".container").css("display", "block");
+
   });
 };
 
