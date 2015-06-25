@@ -6,6 +6,7 @@ var fbData;
 var userData = 1;
 var tempProdId;
 var tempProdName;
+var tempProdUrl;
 
 
 $(function(){
@@ -16,7 +17,6 @@ $(function(){
   begin();
   submitSearch();
   formHandler();
-
 });
 
 // ******* Kelsey's Sandbox *******
@@ -65,10 +65,9 @@ var populateWishList = function(){
 
   request.done(function(response){
     for(i = 0; i < response.length; i++){
-      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
+      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='" + response[i].url + "' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
     };
   });
-
   request.fail(function(){
     console.log("populateWishList ajax call failed.");
   })
@@ -220,6 +219,7 @@ var showListener = function(){
 
       tempProdId = data.id;
       tempProdName = data.name;
+      tempProdUrl = data.image.sizes.IPhone.url;
     });
     request.fail(function(data){
       console.log("fail");
@@ -280,7 +280,6 @@ var display = function(shit){
 
 var formHandler = function(){
   $('.wish-form').on("submit", function(event){
-    debugger
     event.preventDefault();
     var formData = $('.fuck-up').val();
     var data = {
@@ -288,12 +287,15 @@ var formHandler = function(){
         fbId: fbData,
         prodId: tempProdId,
         prodName: tempProdName,
+        prodUrl: tempProdUrl,
     }
-    var response = $.ajax({
+    var request = $.ajax({
       url: baseUrl + "users/" + userData + "/wants",
       crossDomain: true,
       type: 'post',
       data: data,
+    });
+    request.done(function(response){
     });
   });
 };
