@@ -9,32 +9,18 @@ var tempProdName;
 
 $(document).ready(function(){
   begin();
-  // add Mary's js code
   submitSearch();
   formHandler();
+  // showWishlist
 });
 
-
-var formHandler = function(){
-  $('.wish-form').on("submit", function(event){
-    event.preventDefault();
-    var formData = $('.fuck-up').val();
-    var data = {
-        wishPrice: formData,
-        fbId: fbData,
-        prodId: tempProdId,
-        prodName: tempProdName,
-    }
-    var response = $.ajax({
-      url: baseUrl + "users/" + userData + "/wants",
-      crossDomain: true,
-      type: 'post',
-      data: data
-    });
-  });
-};
-
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
+
+// var showWishlist = function(){
+//   $(".nav-wishlist").on("click", function(event){
+//     event.preventDefault();
+//   })
+// }
 
 // ============== Ajax-Begin ==============
 var begin = function(){
@@ -130,6 +116,7 @@ var submitSearch = function(){
 
       for(i = 0; i < products.length; i++){
         $(".softLanding").append("<div class='columns'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+
       };
       showListener();
     });
@@ -203,3 +190,21 @@ var display = function(shit){
   $('.show-page').removeAttr("style");
 };
 
+var formHandler = function(){
+  $('.wish-form').on("submit", function(event){
+    event.preventDefault();
+    var formData = $('.fuck-up').val();
+    var data = {
+        wishPrice: formData,
+        fbId: fbData,
+        prodId: tempProdId,
+        prodName: tempProdName,
+    }
+    var response = $.ajax({
+      url: baseUrl + "users/" + userData + "/wants",
+      crossDomain: true,
+      type: 'post',
+      data: data
+    });
+  });
+};
