@@ -176,7 +176,7 @@ body{
   background-image: url("../images/icon.png");
   display: block;
   padding: 100px;
-  color: white; 
+  color: white;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -247,8 +247,7 @@ div.nav-menu ul li:hover {
 div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
-  padding: 20px 55px 20px 30px;
-
+  padding: 20px 43px 20px 43px;
 }
 
 .search-product-form{
