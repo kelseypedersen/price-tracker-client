@@ -8,13 +8,32 @@ var tempProdId;
 var tempProdName;
 
 $(function(){
+  // ******* Kelsey's Playground *******
   // builds the DOM
-  initialize();
+  // initialize();
+  // ******* End of Kelsey's Playground *******
   begin();
   submitSearch();
+  formHandler();
+
 });
 
-// ============== OAuth-Begin ==============
+// ******* Kelsey's Sandbox *******
+
+// var renderHomeView = function(){
+//   var html =
+//     "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
+
+//   $('body').html(html);
+// };
+
+// var initialize = function(){
+//   var self = this;
+//   // this.store = new MemoryStore(function(){
+//     self.renderHomeView();
+//     console.log('rendered homeview');
+//   // });
+// };
 
   //bindEvents();
   // $('#facebooklogin').click(function(event){
@@ -27,6 +46,10 @@ $(function(){
 //     event.preventDefault();
 //   })
 // }
+
+// ******* End of Kelsey's Sandbox *******
+
+// ============== OAuth-Begin ==============
 
 var wishlist = function(){
   showWishlist();
@@ -62,22 +85,6 @@ var showWishlist = function(){
     $('.softLanding').hide();
     $('.wish-page').show();
   });
-};
-
-
-var renderHomeView = function(){
-  var html =
-    "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
-
-  $('body').html(html);
-};
-
-var initialize = function(){
-  var self = this;
-  // this.store = new MemoryStore(function(){
-    self.renderHomeView();
-    console.log('rendered homeview');
-  // });
 };
 
 // ============== Ajax-Begin ==============
@@ -255,9 +262,9 @@ var display = function(shit){
 
 var formHandler = function(){
   $('.wish-form').on("submit", function(event){
+    debugger
     event.preventDefault();
     var formData = $('.fuck-up').val();
-    debugger
     var data = {
         wishPrice: formData,
         fbId: fbData,
@@ -268,7 +275,7 @@ var formHandler = function(){
       url: baseUrl + "users/" + userData + "/wants",
       crossDomain: true,
       type: 'post',
-      data: data
+      data: data,
     });
   });
 };
