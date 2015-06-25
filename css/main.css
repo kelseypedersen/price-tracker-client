@@ -114,6 +114,57 @@ body{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+/*==========WISH LIST===============*/
+.wish-title {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: whitesmoke;
+  color: #6B142E;
+}
+
+.column {
+  /*float: left;*/
+  background-color: white;
+  width: 100%;
+  /*text-align: center;*/
+  max-height: 150px;
+  /*padding-bottom: 80px;*/
+
+}
+.wish-item {
+  position: relative;
+  /*padding: 5px;*/
+  /*max-width: 75px;*/
+  max-height: 125px;
+  /*text-align: center;*/
+  display: inline-block;
+  /*padding-left: 25px;*/
+  border-bottom: 1px solid #6B142E;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  padding-right: 1em;
+}
+
+.wish-links {
+  /*position: absolute;*/
+  bottom: 1em;
+  display: block;
+  right: 1em;
+  padding-right: 2em;
+  position: absolute;
+}
+
+.wish-item-image {
+  float: left;
+  padding-left: 1em;
+  /*display: inline-block;*/
+}
+
+.item-description {
+  /*display: inline-block;*/
+  float: right;
+}
+
+/*=====================================*/
 .h1-header {
   padding-top: 20%;
   text-align: center;
@@ -125,7 +176,7 @@ body{
   background-image: url("../images/icon.png");
   display: block;
   padding: 100px;
-  color: white; 
+  color: white;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -196,8 +247,7 @@ div.nav-menu ul li:hover {
 div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
-  padding: 20px 55px 20px 30px;
-
+  padding: 20px 43px 20px 43px;
 }
 
 .search-product-form{
