@@ -132,6 +132,11 @@ body{
   /*padding-bottom: 80px;*/
 
 }
+
+.fulfilled {
+  max-height: 1em;
+}
+
 .wish-item {
   position: relative;
   /*padding: 5px;*/
@@ -207,6 +212,7 @@ body{
   width: 50%;
   text-align: center;
   padding-bottom: 80px;
+
 
 }
 
