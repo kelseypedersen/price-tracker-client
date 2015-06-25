@@ -1,6 +1,6 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-// var baseUrl = 'http://localhost:3000/'
-var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+var baseUrl = 'http://localhost:3000/'
+// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
@@ -12,47 +12,15 @@ $(function(){
   initialize();
   begin();
   submitSearch();
-  formHandler();
-
-
-
-  //bindEvents();
-  $('#facebooklogin').click(function(event){
-    alert('fb button clicked!');
-  });
-
 });
 
-var bindEvents = function(){
+// ============== OAuth-Begin ==============
 
-  var formHandler = function(){
-    $('.wish-form').on("submit", function(event){
-      event.preventDefault();
-      var formData = $('.fuck-up').val();
-      var data = {
-          wishPrice: formData,
-          fbId: fbData,
-          prodId: tempProdId,
-          prodName: tempProdName,
-      }
-      var response = $.ajax({
-        url: baseUrl + "users/" + userData + "/wants",
-        crossDomain: true,
-        type: 'post',
-        data: data
-      });
-    });
-  };
+  //bindEvents();
+  // $('#facebooklogin').click(function(event){
+  //   alert('fb button clicked!');
+  // });
 
-
-
-
-
-};
-
-
-
-// +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
 // var showWishlist = function(){
 //   $(".nav-wishlist").on("click", function(event){
@@ -60,7 +28,41 @@ var bindEvents = function(){
 //   })
 // }
 
-// ============== Ajax-Begin ==============
+var wishlist = function(){
+  showWishlist();
+};
+
+var populateWishList = function(){
+  var request = $.ajax({
+    url: baseUrl + "users/" + userData + "/wants",
+    crossDomain: true,
+    type:"get",
+  });
+
+  request.done(function(response){
+    for(i = 0; i < response.length; i++){
+      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[0].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[12].prod_name + "</p><a class='delete-link' href='" + response[0].product_id + "'>Delete</a><a class='update-link' href='" + response[0].product_id + "'>Edit</a></div>")
+    };
+  });
+
+  request.fail(function(){
+    console.log("populateWishList ajax call failed.");
+  })
+};
+
+var showWishlist = function(){
+  $(".nav-wishlist").on("click", function(event){
+    event.preventDefault();
+
+    populateWishList();
+
+    $('.show-page').hide();
+    $('.search-product-form').hide();
+
+    $('.softLanding').hide();
+    $('.wish-page').show();
+  });
+};
 
 
 var renderHomeView = function(){
@@ -77,6 +79,8 @@ var initialize = function(){
     console.log('rendered homeview');
   // });
 };
+
+// ============== Ajax-Begin ==============
 
 var begin = function(){
   $('.button').on('click', function(e){
@@ -118,11 +122,12 @@ var ajaxLogin = function(authData){
   }).done(function(response) {
     userData = response.user.id;
     loadHome();
+    wishlist();
   }).fail(function() {
     alert("Login Failed");
   });
 };
-// ============== Ajax-End ==============
+// ============== OAuth-End ==============
 
 var loadHome = function(){
   $(".hardLanding").remove();
@@ -183,7 +188,6 @@ var submitSearch = function(){
   });
 };
 
-// The following is terribly coded. Forgive me, for I have sinned. <3 Jacob.
 
 var showListener = function(){
   $(".prod-link").on("click", function(){
@@ -253,6 +257,7 @@ var formHandler = function(){
   $('.wish-form').on("submit", function(event){
     event.preventDefault();
     var formData = $('.fuck-up').val();
+    debugger
     var data = {
         wishPrice: formData,
         fbId: fbData,
