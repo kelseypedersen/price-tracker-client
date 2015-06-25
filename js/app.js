@@ -250,14 +250,17 @@ var backButton = function(){
 var homeButton = function(){
   $('.home-button').on("click", function(event){
     event.preventDefault();
+    $('.wish-page').hide();
     $(".container").css("display", "block");
     $('.softLanding').show();
     $('.show-page').hide();
+    $('.search-product-form').show();
   });
 };
 
 var profileButton = function(){
   $('.profile-button').on("click", function(event){
+    $('.wish-page').hide();
     event.preventDefault();
     $(".container").hide();
     $('.softLanding').hide();
