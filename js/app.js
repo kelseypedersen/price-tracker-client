@@ -7,6 +7,7 @@ var userData;
 var tempProdId;
 var tempProdName;
 
+
 $(function(){
   // ******* Kelsey's Playground *******
   // builds the DOM
