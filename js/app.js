@@ -1,42 +1,76 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
 var tempProdId;
 var tempProdName;
 
-$(document).ready(function(){
+$(function(){
+  // builds the DOM
+  initialize();
   begin();
   // add Mary's js code
   submitSearch();
   formHandler();
+
+  //bindEvents();
+  $('#facebooklogin').click(function(event){
+    alert('fb button clicked!');
+  });
+
 });
 
+var bindEvents = function(){
 
-var formHandler = function(){
-  $('.wish-form').on("submit", function(event){
-    event.preventDefault();
-    var formData = $('.fuck-up').val();
-    var data = {
-        wishPrice: formData,
-        fbId: fbData,
-        prodId: tempProdId,
-        prodName: tempProdName,
-    }
-    var response = $.ajax({
-      url: baseUrl + "users/" + userData + "/wants",
-      crossDomain: true,
-      type: 'post',
-      data: data
+  var formHandler = function(){
+    $('.wish-form').on("submit", function(event){
+      event.preventDefault();
+      var formData = $('.fuck-up').val();
+      var data = {
+          wishPrice: formData,
+          fbId: fbData,
+          prodId: tempProdId,
+          prodName: tempProdName,
+      }
+      var response = $.ajax({
+        url: baseUrl + "users/" + userData + "/wants",
+        crossDomain: true,
+        type: 'post',
+        data: data
+      });
     });
-  });
+  };
+
+
+
+
+
 };
+
+
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
 
 // ============== Ajax-Begin ==============
+
+
+var renderHomeView = function(){
+  var html =
+    "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
+
+  $('body').html(html);
+};
+
+var initialize = function(){
+  var self = this;
+  // this.store = new MemoryStore(function(){
+    self.renderHomeView();
+    console.log('rendered homeview');
+  // });
+};
+
 var begin = function(){
   $('.button').on('click', function(e){
     e.preventDefault();
