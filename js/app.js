@@ -85,9 +85,11 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
   $(".hardLanding").remove();
-  $(".search-product-form").hide();
+  $(".search-product-form").show();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
+  homeButton();
+  profileButton();
 
   var request = $.ajax({
     url: baseUrl + "products/newest_products",
@@ -156,7 +158,6 @@ var showListener = function(){
       $("html").css('background-color', 'white');
       display(data);
       backButton();
-      searchButton();
       tempProdId = data.id;
       tempProdName = data.name;
     });
@@ -179,12 +180,21 @@ var backButton = function(){
 
 //++++++++++++ Nav Bar ++++++++++++++++++++++++//
 
-// var searchButton = function(){
-//   $('.search-button').on("click", function(event){
-//     event.preventDefault();
-//     $('.softLanding').hide();
-//   });
-// };
+var homeButton = function(){
+  $('.home-button').on("click", function(event){
+    event.preventDefault();
+    $('.softLanding').show();
+    $('.show-page').hide();
+  });
+};
+
+var profileButton = function(){
+  $('.profile-button').on("click", function(event){
+    event.preventDefault();
+    $('.softLanding').hide();
+    $('.show-page').hide();
+  });
+};
 
 //++++++++++++ end ++++++++++++++++++++++++//
 
