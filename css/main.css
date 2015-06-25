@@ -47,6 +47,10 @@ hr {
     padding: 0;
 }
 
+.softLanding {
+  margin-top: 2em;
+}
+
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -105,7 +109,7 @@ textarea {
 /* Enter Page Styles */
 body{
   background-repeat: no-repeat;
-  background-image: url("/images/bg.png");
+  background-image: url("../images/bg.png");
   background-size: 100%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -118,7 +122,7 @@ body{
 }
 
 .button {
-  background-image: url("/images/icon.png");
+  background-image: url("../images/icon.png");
   display: block;
   padding: 100px;
   color: white;
@@ -129,11 +133,10 @@ body{
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-size: 150px;
-  background-color: green;
 }
 
 .container {
-  min-height: 1.1em;
+  min-height: 3em;
   width: 100%;
   font-size: 16px;
   display: block;
@@ -162,16 +165,14 @@ body{
   padding-left: 25px;
 }
 
-.search-icon {
-  height: 1em;
-}
+/*.search-icon {
+  height: 1.2em;
+}*/
 
 
 /* Nav Menu */
 
-.search-icon {
-  height: 1em;
-}
+
 
 .clearfix {
   background: #191919;
@@ -196,13 +197,35 @@ div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
   padding: 20px 55px 20px 30px;
+
 }
 
 .search-product-form{
   padding-bottom: 5px;
-  padding-top: 5px
+  padding-top: 2em;
   background-color: whitesmoke;
+  height: 4em;
 }
+
+ #product-search {
+  margin-top: 1em;
+  height: 3em;
+ }
+
+ .search-icon {
+
+}
+
+ input {
+  height: 2em;
+  font-size: 16px;
+ }
+
+ .search {
+  width: 15em;
+ }
+
+
 
 /* Back Button */
 .back-arrow {
@@ -266,6 +289,8 @@ div.nav-menu ul li a:visited {
  * Hide only visually, but have it available for screen readers:
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
+
+
 
 .visuallyhidden {
     border: 0;
