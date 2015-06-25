@@ -1,11 +1,12 @@
 var ref = new Firebase("https://pricetracker2015.firebaseio.com/");
-var baseUrl = 'http://localhost:3000/'
-// var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
+// var baseUrl = 'http://localhost:3000/'
+var baseUrl = 'http://young-ravine-5515.herokuapp.com/'
 
 var fbData;
 var userData;
 var tempProdId;
 var tempProdName;
+var tempProdUrl;
 
 
 $(function(){
@@ -16,7 +17,6 @@ $(function(){
   begin();
   submitSearch();
   formHandler();
-
 });
 
 // ******* Kelsey's Sandbox *******
@@ -65,10 +65,9 @@ var populateWishList = function(){
 
   request.done(function(response){
     for(i = 0; i < response.length; i++){
-      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='temp' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
+      $('.wish-item-container').prepend("<div class='wish-item'><a class='remote-link' href='" + response[i].product_id + "'><img class='wish-item-image' src='" + response[i].url + "' /></a><p class='item-name'>" + response[i].prod_name + "</p><a class='delete-link' href='" + response[i].product_id + "'>Delete</a><a class='update-link' href='" + response[i].product_id + "'>Edit</a></div>")
     };
   });
-
   request.fail(function(){
     console.log("populateWishList ajax call failed.");
   })
@@ -220,6 +219,7 @@ var showListener = function(){
 
       tempProdId = data.id;
       tempProdName = data.name;
+      tempProdUrl = data.image.sizes.IPhone.url;
     });
     request.fail(function(data){
       console.log("fail");
@@ -246,6 +246,7 @@ var backButton = function(){
 var homeButton = function(){
   $('.home-button').on("click", function(event){
     event.preventDefault();
+    $('.wish-page').hide();
     $(".container").css("display", "block");
     $('.softLanding').show();
     $('.show-page').hide();
@@ -255,6 +256,7 @@ var homeButton = function(){
 
 var profileButton = function(){
   $('.profile-button').on("click", function(event){
+    $('.wish-page').hide();
     event.preventDefault();
     $(".container").hide();
     $('.softLanding').hide();
@@ -288,12 +290,15 @@ var formHandler = function(){
         fbId: fbData,
         prodId: tempProdId,
         prodName: tempProdName,
+        prodUrl: tempProdUrl,
     }
-    var response = $.ajax({
+    var request = $.ajax({
       url: baseUrl + "users/" + userData + "/wants",
       crossDomain: true,
       type: 'post',
       data: data,
+    });
+    request.done(function(response){
     });
   });
 };
