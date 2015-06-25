@@ -71,7 +71,7 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
   $(".hardLanding").remove();
-  $(".search-product-form").css("display", "block");
+  $(".search-product-form").hide();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
 
@@ -82,11 +82,15 @@ var loadHome = function(){
    });
 
   request.done(function(data){
+
+    $("html").css('background-image', '');
+    $("html").css('background-color', 'white');
+
     var products = data["products"]
 
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").prepend("<div class='column-a'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").prepend("<div class='columns'><a class='prod-link' href='" + baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.Best.url + "' alt='product Image'>" + "</a></div>")
       };
     showListener();
   });
@@ -105,11 +109,14 @@ var submitSearch = function(){
 
     request.done(function(data){
       $(".softLanding").empty();
+      $("html").css('background-image', '');
+      $("html").css('background-color', 'white');
 
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){
-        $(".softLanding").append("<div class='column-a'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='columns'><a class='prod-link' href='"+ baseUrl + "products/" + products[i].id + "'>" + "<img class='sa' src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+
       };
       showListener();
     });
@@ -130,9 +137,13 @@ var showListener = function(){
       crossDomain: true,
       type: "GET"
     });
+
     request.done(function(data){
+      $("html").css('background-image', '');
+      $("html").css('background-color', 'white');
       display(data);
       backButton();
+      searchButton();
       tempProdId = data.id;
       tempProdName = data.name;
     });
@@ -145,11 +156,24 @@ var showListener = function(){
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
+    $("html").css('background-image', '');
+    $("html").css('background-color', 'white');
     $('.show-page').hide();
     $('.search-product-form').show();
     $('.softLanding').show();
   });
 };
+
+//++++++++++++ Nav Bar ++++++++++++++++++++++++//
+
+// var searchButton = function(){
+//   $('.search-button').on("click", function(event){
+//     event.preventDefault();
+//     $('.softLanding').hide();
+//   });
+// };
+
+//++++++++++++ end ++++++++++++++++++++++++//
 
 var display = function(shit){
   $('.prod-url').attr('href', shit.clickUrl);

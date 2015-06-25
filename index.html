@@ -37,7 +37,6 @@
   </div>
 
 <div class = "container" style="display:none;">
-
   <div class="search-product-form" style="display:none;">
     <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
       <input type="text" name="search"/>
@@ -60,22 +59,14 @@
     </a>
 
     <ul class="product-info">
-<!--       <li class="text-reg">Regular Price:</li>
-      <li class="prod-reg"></li> -->
-      <li class="text-cur">Current Price:</li>
-      <li class="prod-cur"></li>
-      <li class="text-stock">In Stock:</li>
-      <li class="prod-stock"></li>
-<!--       <li class="text-brand">Brand:</li> -->
-<!--       <li class="prod-brand"></li> -->
-<!--       <li class="text-desc">Description:</li>
-      <li class="prod-desc"></li> -->
+      <p class="text-reg">Regular Price:</p>
+      <p class="prod-reg"></p>
+      <p class="text-cur">Current Price:</p>
+      <p class="prod-cur"></p>
     </ul>
     <form class="wish-form" action="" method="POST">
       <p class="form-text">Add to Wishlist</p>
       <input class="fuck-up" type="text" name="price" placeholder="Price You'd Pay" />
-      <!-- <input type="text" name="search" placeholder="Wait Time"/>
-      <br> -->
       <input type="submit" value="Add to Wishlist" />
     </form>
   </div>
@@ -86,6 +77,7 @@
   <footer>
     <div class="nav-menu" style="display:none;">
       <ul class="clearfix">
+
         <li>
           <a href="#"><img src="/images/instagram19.png" height="40px"></a>
         </li>
