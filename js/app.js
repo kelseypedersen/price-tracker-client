@@ -14,16 +14,22 @@ $(function(){
   submitSearch();
   formHandler();
 
+  fbAuth();
+  ajaxLogin();
+  submitSearch();
+  showListener();
+  backButton();
+  display();
 
 
-  //bindEvents();
-  $('#facebooklogin').click(function(event){
-    alert('fb button clicked!');
-  });
+  bindEvents();
+  // $('#facebooklogin').click(function(event){
+  //   alert('fb button clicked!');
+  // });
 
 });
 
-var bindEvents = function(){
+// var bindEvents = function(){
 
   var formHandler = function(){
     $('.wish-form').on("submit", function(event){
@@ -43,12 +49,7 @@ var bindEvents = function(){
       });
     });
   };
-
-
-
-
-
-};
+// };
 
 
 
@@ -63,20 +64,23 @@ var bindEvents = function(){
 // ============== Ajax-Begin ==============
 
 
-var renderHomeView = function(){
-  var html =
-    "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
 
-  $('body').html(html);
-};
 
 var initialize = function(){
   var self = this;
   // this.store = new MemoryStore(function(){
     self.renderHomeView();
+    self.begin();
     console.log('rendered homeview');
   // });
 };
+
+var renderHomeView = function(){
+  var html =
+    "<div class='hardLanding' id='facebooklogin'><form class='button' action='/users' method='post'></form></div>"
+  $('body').html(html);
+};
+
 
 var begin = function(){
   $('.button').on('click', function(e){
@@ -100,6 +104,7 @@ var fbAuth = function(){
   })
   return promise;
 };
+
 
 var ajaxLogin = function(authData){
   userId = authData.facebook.id;
