@@ -108,7 +108,7 @@ body{
   background-image: url("/images/bg.png");
   background-size: 100%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-} 
+}
 
 .h1-header {
   padding-top: 20%;
@@ -129,7 +129,6 @@ body{
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-size: 150px;
-  background-color: green;
 }
 
 .container {
@@ -229,7 +228,7 @@ div.nav-menu ul li a:visited {
   margin-right: 50px;
 }
 
-/* Text on Show Page 
+/* Text on Show Page
 */
 .prod-name {
   color: dimgrey;
