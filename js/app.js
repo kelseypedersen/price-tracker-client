@@ -74,7 +74,7 @@ var populateWishList = function(){
 };
 
 var showWishlist = function(){
-  $(".nav-wishlist").on("click", function(event){
+  $("#nav-wishlist").on("click", function(event){
     event.preventDefault();
 
     populateWishList();
@@ -233,11 +233,15 @@ var backButton = function(){
     $(".container").css("display", "block");
     $("html").css('background-image', '');
     $("html").css('background-color', 'white');
+
     $('.show-page').hide();
+    $(".prod-cur").hide();
+    $(".text-cur").hide();
+    $('.prod-reg').html("");
+
     $('.search-product-form').show();
     $('.softLanding').show();
     $(".container").css("display", "block");
-
   });
 };
 
@@ -270,11 +274,21 @@ var display = function(shit){
   // $(".prod-brand").html(shit.brand.name);
   $(".prod-stock").html(shit.inStock);
   // $(".prod-desc").html(shit.description);
-  $(".prod-cur").html(shit.salePrice);
-  $(".prod-reg").html(shit.price);
+
+  $(".prod-reg").html("$" + shit.price);
+
+  if(shit.salePrice !== undefined){
+    tempRegPrice = $('.prod-reg').html();
+    $('.prod-reg').html("<strike>" + tempRegPrice + "</strike>");
+    $(".prod-cur").show();
+    $(".text-cur").show();
+    $(".prod-cur").html("$" + shit.salePrice);
+  }
 
   $('.search-product-form').hide();
   $('.softLanding').hide();
+  $('#add-confirm').hide();
+  $('.wish-form').show();
   $('.show-page').removeAttr("style");
 };
 
@@ -296,6 +310,13 @@ var formHandler = function(){
       data: data,
     });
     request.done(function(response){
+      $('.wish-form').hide();
+      $('#add-confirm').show();
+      $('.fuck-up').val('');
+    });
+    request.fail(function(response){
+      console.log("Ajax call failed:");
+      console.log(response);
     });
   });
 };
