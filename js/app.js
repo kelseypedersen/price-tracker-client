@@ -15,6 +15,7 @@ $(function(){
   formHandler();
 
 
+
   //bindEvents();
   $('#facebooklogin').click(function(event){
     alert('fb button clicked!');
@@ -48,6 +49,7 @@ var bindEvents = function(){
 
 
 };
+
 
 
 // +++++++++++++++++++++++++ function definitions only +++++++++++++++++++++++++
