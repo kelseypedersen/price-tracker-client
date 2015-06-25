@@ -8,6 +8,7 @@ var tempProdId;
 var tempProdName;
 var tempProdUrl;
 
+
 $(function(){
   // ******* Kelsey's Playground *******
   // builds the DOM
@@ -140,6 +141,8 @@ var loadHome = function(){
   $(".search-product-form").show();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
+  homeButton();
+  profileButton();
 
   var request = $.ajax({
     url: baseUrl + "products/newest_products",
@@ -205,12 +208,15 @@ var showListener = function(){
     });
 
     request.done(function(data){
+      $(".container").css("display", "block");
       $("html").css('background-image', '');
       $("html").css('background-color', 'white');
       $(".container").hide();
       display(data);
       backButton();
+
       // searchButton();
+
       tempProdId = data.id;
       tempProdName = data.name;
       tempProdUrl = data.image.sizes.IPhone.url;
@@ -224,6 +230,7 @@ var showListener = function(){
 var backButton = function(){
   $('.back-button').on("click", function(event){
     event.preventDefault();
+    $(".container").css("display", "block");
     $("html").css('background-image', '');
     $("html").css('background-color', 'white');
     $('.show-page').hide();
@@ -236,12 +243,23 @@ var backButton = function(){
 
 //++++++++++++ Nav Bar ++++++++++++++++++++++++//
 
-// var searchButton = function(){
-//   $('.search-button').on("click", function(event){
-//     event.preventDefault();
-//     $('.softLanding').hide();
-//   });
-// };
+var homeButton = function(){
+  $('.home-button').on("click", function(event){
+    event.preventDefault();
+    $(".container").css("display", "block");
+    $('.softLanding').show();
+    $('.show-page').hide();
+  });
+};
+
+var profileButton = function(){
+  $('.profile-button').on("click", function(event){
+    event.preventDefault();
+    $(".container").hide();
+    $('.softLanding').hide();
+    $('.show-page').hide();
+  });
+};
 
 //++++++++++++ end ++++++++++++++++++++++++//
 

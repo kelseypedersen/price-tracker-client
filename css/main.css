@@ -103,10 +103,10 @@ textarea {
 }
 
 /* Enter Page Styles */
-body {
+body{
   background-repeat: no-repeat;
   background-image: url("/images/bg.png");
-/*  background-size: 100%;*/
+  background-size: 100%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
@@ -169,6 +169,10 @@ body {
 
 /* Nav Menu */
 
+.search-icon {
+  height: 1em;
+}
+
 .clearfix {
   background: #191919;
 }
@@ -191,7 +195,7 @@ div.nav-menu ul li:hover {
 div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
-  padding: 20px 30px 20px 20px;
+  padding: 20px 55px 20px 30px;
 }
 
 .search-product-form{
@@ -201,7 +205,6 @@ div.nav-menu ul li a:visited {
 }
 
 /* Back Button */
-
 .back-arrow {
   padding-top: 20px;
   padding: 20px;
@@ -226,8 +229,8 @@ div.nav-menu ul li a:visited {
   margin-right: 50px;
 }
 
-/* Text on Show Page */
-
+/* Text on Show Page
+*/
 .prod-name {
   color: dimgrey;
   text-align: center;
@@ -241,7 +244,7 @@ div.nav-menu ul li a:visited {
 
 /*.text-reg {
   text-align: -webkit-center;
-}*/
+}
 
 
 
