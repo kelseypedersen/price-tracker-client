@@ -17,9 +17,9 @@
         Kelsey Pedersen
     </author>
 
-    <preference name="permissions" value="none"/>
+<!--     <preference name="permissions" value="none"/>
 
-    <access origin="*"/>
+    <access origin="*"/> -->
 
     <!--
       If you do not want any permissions to be added to your app, add the
