@@ -119,6 +119,8 @@ body{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   background-color: whitesmoke;
   color: #6B142E;
+  text-align: center;
+  font-size: 2em;
 }
 
 .column {
@@ -176,7 +178,7 @@ body{
   background-image: url("../images/icon.png");
   display: block;
   padding: 100px;
-  color: white; 
+  color: white;
   position: absolute;
   left: 50%;
   top: 50%;
