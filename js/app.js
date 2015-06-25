@@ -92,7 +92,6 @@ var showWishlist = function(){
 
 var begin = function(){
   $('.button').on('click', function(e){
-    debugger
     e.preventDefault();
     fbAuth().then(function(authData){
       ajaxLogin(authData);
@@ -250,6 +249,7 @@ var homeButton = function(){
     $(".container").css("display", "block");
     $('.softLanding').show();
     $('.show-page').hide();
+    $('.search-product-form').show();
   });
 };
 
@@ -281,7 +281,6 @@ var display = function(shit){
 
 var formHandler = function(){
   $('.wish-form').on("submit", function(event){
-    debugger
     event.preventDefault();
     var formData = $('.fuck-up').val();
     var data = {
