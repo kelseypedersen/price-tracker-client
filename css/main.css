@@ -142,10 +142,17 @@ textarea {
 
 /* Enter Page Styles */
 body{
+/*  background-repeat: no-repeat;
+*//*  background-image: url("../images/bg.png");
+*/  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.splashImage {
+  width: 100%;
+  min-height: 670px;
   background-repeat: no-repeat;
   background-image: url("../images/bg.png");
   background-size: 100%;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   /*font-family: "learning-curve-dashed", cursive;*/
 }
 
@@ -222,11 +229,11 @@ body{
 }
 
 .button {
-  background-image: url("../images/icon.png");
+  background-image: url("../images/logo.png");
   display: block;
-  padding: 100px;
+  padding: 80px;
   color: white;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   margin-right: -50%;
@@ -266,9 +273,10 @@ body{
   padding-left: 25px;
 }
 
-/*.search-icon {
-  height: 1.2em;
-}*/
+.search-icon {
+  height: 25px;
+  padding-left: 10px;
+}
 
 
 /* Nav Menu */
@@ -297,14 +305,13 @@ div.nav-menu ul li:hover {
 div.nav-menu ul li a:link,
 div.nav-menu ul li a:visited {
   display: block;
-  padding: 20px 43px 20px 43px;
+  padding: 20px 40px 20px 40px;
 }
 
 .search-product-form{
-  padding-bottom: 5px;
-  padding-top: 2em;
+  margin-top: 1em;
+  height: 3em;
   background-color: whitesmoke;
-  height: 4em;
 }
 
  #product-search {

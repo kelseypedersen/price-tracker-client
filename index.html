@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/trg.css">
   <link rel="stylesheet" href="css/main.css">
 
+  <!--JS Masonry -->
+  <script src="jquery.masonry.min.js"></script>
   <!-- JQuery Library (Does this need to be updated for mobile?) -->
   <script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <!-- Used for PhoneGap -->
@@ -29,9 +31,11 @@
   </header>
 
   <!-- Link for OAuth -->
-    <div class="hardLanding">
-     <form class="button" action="/users" method="post"></form>
-    </div>
+
+  <div class="hardLanding">
+    <img class="splashImage" src="../images/bg.png">
+    <form class="button" action="/users" method="post"></form>
+  </div>
 
     <div class = "container" style="display:none;">
       <div class="search-product-form" style="display:none;">
@@ -96,13 +100,9 @@
   <footer>
     <div class="nav-menu" style="display:none;">
       <ul class="clearfix">
-
-
         <li><a href="#"><img class="home-button"src="images/home.png" height="40px"></a></li>
         <li><a href="#" id="nav-wishlist"><img src="images/wish.png" height="40px"></a></li>
-        <li><a href="#"><img class="profile-button" src="images/profile.png" height="40px"></a></li>
-
-
+        <li><a href="#"><img class="search-button" src="images/searchbutton.png" height="40px"></a></li>
       </ul>
     </div>
   </footer>
