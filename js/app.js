@@ -225,8 +225,6 @@ var showListener = function(){
       display(data);
       backButton();
 
-      // searchButton();
-
       tempProdId = data.id;
       tempProdName = data.name;
       tempProdUrl = data.image.sizes.IPhone.url;
@@ -251,6 +249,8 @@ var backButton = function(){
 
     $('.softLanding').show();
     $(".container").css("display", "block");
+    $('.header').css("padding-left", "150px");
+    $('.container').css("min-height", "4em");
   });
 };
 
@@ -264,7 +264,15 @@ var searchButton = function(){
     $(".container").css("display", "block");
     $('.softLanding').show();
     $('.show-page').hide();
+
+    $('.header').css({
+      "position": "fixed",
+      "padding": "10px",
+      "padding-top": "10px"
+    });
     $('.search-product-form').show();
+
+    $('#search').css("margin-left", "20%");
   });
 };
 
@@ -273,9 +281,15 @@ var homeButton = function(){
     event.preventDefault();
     $('.wish-page').hide();
     $(".container").css("display", "block");
+    
     $('.softLanding').show();
     $('.show-page').hide();
     $('.search-product-form').hide();
+
+    $('.header').css({
+      "padding-left": "150px",
+    });
+    $('.container').css("min-height", "4em");
   });
 };
 
