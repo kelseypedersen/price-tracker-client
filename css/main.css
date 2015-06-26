@@ -146,11 +146,19 @@ body{
   background-image: url("../images/bg.png");
   background-size: 100%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  /*font-family: "learning-curve-dashed", cursive;*/
 }
 
 /*==========WISH LIST===============*/
+
+/*@font-face {
+  font-family: dottedScriptFont;
+  src: url ("/assets/fonts/LearningCurveDashed.ttf");
+}*/
 .wish-title {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  /*font-family: dottedScriptFont;*/
+
+  font-family: "learning-curve-dashed", cursive;
   background-color: whitesmoke;
   color: #6B142E;
   text-align: center;
