@@ -16,6 +16,40 @@ html {
     line-height: 1.4;
 }
 
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Nordstern-Light';
+  src: url('../images/fonts/NordsternDemo-Hell.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nordstern-Medium';
+  src: url('../images/fonts/NordsternDemo-Normal.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nordstern-Heavy';
+  src: url('../images/fonts/NordsternDemo-Dunkel.ttf') format('truetype');
+}
+
+/* Examples:
+ .test-this-shit-light {
+   font-family: 'Nordstern-Light';
+ }
+ .test-this-shit-medium {
+   font-family: 'Nordstern-Medium';
+ }
+ .test-this-shit-heavy {
+   font-family: 'Nordstern-Heavy';
+ }*/
+
+ /* ==========================================================================
+   Fonts-End
+   ========================================================================== */
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -116,11 +150,22 @@ body{
 .splashImage {
   width: 100%;
   min-height: 670px;
+  background-repeat: no-repeat;
+  background-image: url("../images/bg.png");
+  background-size: 100%;
+  /*font-family: "learning-curve-dashed", cursive;*/
 }
 
 /*==========WISH LIST===============*/
+
+/*@font-face {
+  font-family: dottedScriptFont;
+  src: url ("/assets/fonts/LearningCurveDashed.ttf");
+}*/
 .wish-title {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  /*font-family: dottedScriptFont;*/
+
+  font-family: "learning-curve-dashed", cursive;
   background-color: whitesmoke;
   color: #6B142E;
   text-align: center;
@@ -136,6 +181,11 @@ body{
   /*padding-bottom: 80px;*/
 
 }
+
+.fulfilled {
+  max-height: 1em;
+}
+
 .wish-item {
   position: relative;
   /*padding: 5px;*/
@@ -211,6 +261,7 @@ body{
   width: 50%;
   text-align: center;
   padding-bottom: 80px;
+
 
 }
 
