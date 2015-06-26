@@ -315,12 +315,21 @@ div.nav-menu ul li a:visited {
 }
 
  #product-search {
-  margin-top: 1em;
-  height: 3em;
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
  }
 
- .search-icon {
-
+#search{
+  margin-left: 10%;
+  width: 90%;
+  height: 35px;
+  border: none;
+  font-size: 12pt;
+  float: left;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
 }
 
  input {
