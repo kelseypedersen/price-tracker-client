@@ -138,11 +138,11 @@ var ajaxLogin = function(authData){
 
 var loadHome = function(){
   $(".hardLanding").remove();
-  $(".search-product-form").show();
   $(".nav-menu").css("display", "block");
   $(".container").css("display", "block");
+  $('.search-product-form').hide();
   homeButton();
-  profileButton();
+  searchButton();
 
   var request = $.ajax({
     url: baseUrl + "products/newest_products",
@@ -239,13 +239,24 @@ var backButton = function(){
     $(".text-cur").hide();
     $('.prod-reg').html("");
 
-    $('.search-product-form').show();
     $('.softLanding').show();
     $(".container").css("display", "block");
   });
 };
 
 //++++++++++++ Nav Bar ++++++++++++++++++++++++//
+
+
+var searchButton = function(){
+  $('.search-button').on("click", function(event){
+    event.preventDefault();
+    $('.wish-page').hide();
+    $(".container").css("display", "block");
+    $('.softLanding').show();
+    $('.show-page').hide();
+    $('.search-product-form').show();
+  });
+};
 
 var homeButton = function(){
   $('.home-button').on("click", function(event){
@@ -254,19 +265,10 @@ var homeButton = function(){
     $(".container").css("display", "block");
     $('.softLanding').show();
     $('.show-page').hide();
-    $('.search-product-form').show();
+    $('.search-product-form').hide();
   });
 };
 
-var profileButton = function(){
-  $('.profile-button').on("click", function(event){
-    $('.wish-page').hide();
-    event.preventDefault();
-    $(".container").hide();
-    $('.softLanding').hide();
-    $('.show-page').hide();
-  });
-};
 
 //++++++++++++ end ++++++++++++++++++++++++//
 
