@@ -38,10 +38,14 @@
   </div>
 
     <div class = "container" style="display:none;">
+      
+      <div class="header">
+        <img class="logo" src="images/logo.png"/>      
+      </div>
+
       <div class="search-product-form" style="display:none;">
         <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
-          <input type="text" name="search"/>
-          <input type="image" class="search-icon" src="/images/search.png" alt="Submit Form" />
+          <input id="search" type="text" name="search" placeholder="Search..."/>
         </form>
       </div>
     </div>
@@ -62,7 +66,6 @@
     <div class="wish-item-template" style="display:none;">
       <div class="wish-item">
         <a class="remote-link" href="">
-          <img class="" src="" />
         </a>
         <p class="item-name"></p>
         <a class="remote-link" href="">Delete</a>
